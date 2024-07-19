@@ -1,0 +1,41 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: "Lecture"
+    chapters:
+      - file: Lecture/Lecture_1
+        title: "Lecture 1: A Course Overview"
+      - file: Lecture/Lecture_2
+        title: "Lecture 2: Basic Models of Space"
+      - file: Lecture/Lecture_3
+        title: "Lecture 3: Spatial Language in Documents and Queries"
+      - file: Lecture/Lecture_4
+        title: "Lecture 4: Georeferencing I - Geoparsing"
+      - file: Lecture/Lecture_5
+        title: "Lecture 5: Georeferencing II - Geocoding"
+      - file: Lecture/Lecture_6
+        title: "Lecture 6: Spatial Indexing"
+      - file: Lecture/Lecture_7
+        title: "Lecture 7: Relevance Ranking for GIR Systems"
+      - file: Lecture/Lecture_8
+        title: "Lecture 8: Geospatial Semantics I"
+      - file: Lecture/Lecture_9
+        title: "Lecture 9: Geospatial Semantics II"
+      - file: Lecture/Lecture_10
+        title: "Lecture 10: Ongoing Research and Challenges in GIR"
+  - caption: "Lab"
+    chapters:
+      - file: Lab/Lab_1
+        title: "Lab 1"
+  - caption: "Assignment"
+    chapters:
+      - file: Assignment/Assignment_1
+        title: "Assignment 1"
+  - caption: "Project"
+    chapters:
+      - file: Project
+        title: "Final Project"
+
