@@ -6,19 +6,19 @@ The course will cover GIR’s core concepts, techniques and challenges, such as 
 
  
 ## Syllabus
-|    <br>Week           |    <br>Lecture Topic                           |    <br>Lab                  |    <br>Assignment                              |
-|-----------------------|------------------------------------------------|-----------------------------|------------------------------------------------|
-| Week 1  (03.10.24)    | A Course Overview                              | Lab 1                       |                                                |
-| Week 2  (10.10.24)    | Basic Models of Space                          | Lab 2                       |                                                |
-| Week 3  (17.10.24)    | Spatial Language in Documents and Queries      | Lab 3                       | Assignment 1                                   |
-| Week 4  (24.10.24)    | Georeferencing I - Geoparsing                  | Lab 4                       |<span style="color:red;">Assignment 1 due</span>|
-| Week 5  (31.10.24)    | Georeferencing II - Geocoding                  | Lab 5                       | Assignment 2                                   |
-| Week 6  (07.11.24)    | Spatial Indexing                               | Lab 6                       |<span style="color:red;">Assignment 2 due</span>|
-| Week 7  (14.11.24)    | Relevance Ranking for GIR Systems              | Lab 7                       | Assignment 3                                   |
-| Week 8  (21.11.24)    | Geospatial Semantics I                         | Lab 8                       |<span style="color:red;">Assignment 3 due</span>|
-| Week 9  (28.11.24)    | Geospatial Semantics II                        | Lab 9                       | Assignment 4                                   |
-| Week 10  (05.12.24)   | Ongoing Research and Challenges in GIR         | Final Project Grouping      |<span style="color:red;">Assignment 4 due</span>|
-| Week 11  (16.01.25)   | **Final Presentation**                         |                             |                                                |
+|    <br>Week           |    <br>Lecture Topic                           |    <br>Lab                  |    <br>Assignment   |
+|-----------------------|------------------------------------------------|-----------------------------|---------------------|
+| Week 1  (03.10.24)    | A Course Overview                              | Lab 1                       |                     |
+| Week 2  (10.10.24)    | Basic Models of Space                          | Lab 2                       |                     |
+| Week 3  (17.10.24)    | Spatial Language in Documents and Queries      | Lab 3                       | Assignment 1        |
+| Week 4  (24.10.24)    | Georeferencing I - Geoparsing                  | Lab 4                       |**Assignment 1 due** |
+| Week 5  (31.10.24)    | Georeferencing II - Geocoding                  | Lab 5                       | Assignment 2        |
+| Week 6  (07.11.24)    | Spatial Indexing                               | Lab 6                       |**Assignment 2 due** |
+| Week 7  (14.11.24)    | Relevance Ranking for GIR Systems              | Lab 7                       | Assignment 3        |
+| Week 8  (21.11.24)    | Geospatial Semantics I                         | Lab 8                       |**Assignment 3 due** |
+| Week 9  (28.11.24)    | Geospatial Semantics II                        | Lab 9                       | Assignment 4        |
+| Week 10  (05.12.24)   | Ongoing Research and Challenges in GIR         | Final Project Grouping      |**Assignment 4 due** |
+| Week 11  (16.01.25)   | **Final Presentation**                         |                             |                     |
 
 ## Assessment and permitted materials
 - Participation (10%)
