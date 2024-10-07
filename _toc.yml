@@ -30,6 +30,8 @@ parts:
     chapters:
       - file: Lab/Lab_1
         title: "Lab 1"
+      - file: Lab/Lab_2
+        title: "Lab 2"
   - caption: "Assignment"
     chapters:
       - file: Assignment/Assignment_1
