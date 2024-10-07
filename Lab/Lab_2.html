@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 2 - Spatial Data &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lab/Lab_2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 1" href="../Assignment/Assignment_1.html" />
+    <link rel="prev" title="Lab 1 - Installation" href="Lab_1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W) - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_1.html">Lecture 1: A Course Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_2.html">Lecture 2: Basic Models of Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_3.html">Lecture 3: Spatial Language in Documents and Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_4.html">Lecture 4: Georeferencing I - Geoparsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_5.html">Lecture 5: Georeferencing II - Geocoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_6.html">Lecture 6: Spatial Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_7.html">Lecture 7: Relevance Ranking for GIR Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_8.html">Lecture 8: Geospatial Semantics I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_9.html">Lecture 9: Geospatial Semantics II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_10.html">Lecture 10: Ongoing Research and Challenges in GIR</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lab_1.html">Lab 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Final Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/meilinshi/290061-Geographic-Information-Retrieval" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/meilinshi/290061-Geographic-Information-Retrieval/issues/new?title=Issue%20on%20page%20%2FLab/Lab_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lab/Lab_2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 2 - Spatial Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">1 - Troubleshooting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-alternative-choices-of-using-jupyter-notebook">1.1 - Google Colab: Alternative Choices of Using Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-remove-the-virtual-environment-and-create-a-new-one">1.2 - How to Remove the Virtual Environment and Create a New One</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-for-spatial-data">2 - GeoPandas for Spatial Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-on-your-computer">2.1 - Installation on Your Computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-v-s-pandas-for-non-spatial-data">2.2 - GeoPandas v.s. Pandas (for Non-spatial Data)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-natural-earth-vector-data">3 - Working with Natural Earth Vector Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download">3.1 - Data Download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">3.2 - Load Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis">3.3 - Statistical Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-over-geodataframe">3.4 - Querying over GeoDataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-system-transformation">3.5 - Coordinate System Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-computation">3.6 - Distance Computation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">4 - Submission</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-2-spatial-data">
+<h1>Lab 2 - Spatial Data<a class="headerlink" href="#lab-2-spatial-data" title="Link to this heading">#</a></h1>
+<p>Th. 10.10.2024 15:00-17:00</p>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2>1 - Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<section id="google-colab-alternative-choices-of-using-jupyter-notebook">
+<h3>1.1 - Google Colab: Alternative Choices of Using Jupyter Notebook<a class="headerlink" href="#google-colab-alternative-choices-of-using-jupyter-notebook" title="Link to this heading">#</a></h3>
+<p>Google Colab can serve as a backup plan in case <strong>conda</strong> on both your local and lab computers is not working.</p>
+<p><img alt="colab" src="../_images/colab.png" /></p>
+<p><strong>You can go to Colab from <a class="reference external" href="https://colab.google">here</a>.</strong></p>
+<p>To check third-party packages that have already been installed in Colab, execute the following command with <a class="reference external" href="https://pypi.org/project/pip">pip</a> (rather than <a class="reference external" href="https://docs.conda.io/en/latest/">conda</a>). Make sure to start with an exclamation mark <strong>!</strong> to tell Jupyter Notebook to run the command as a shell command (rather than as Python codes).</p>
+<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">list</span></code></p>
+<p>You may also see <strong>Pandas</strong> from the list.</p>
+<p><img alt="pip_list" src="../_images/pip_list.png" /></p>
+<p>From here you can install the packages that you need.</p>
+<p><strong>For instance, we can install <strong>GeoPandas</strong>, which will be used in this session.</strong></p>
+<p>To do so, you can execute the following command…</p>
+<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">geopandas</span></code></p>
+<p>… and then run the code below to check whether the installation is successful.</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">geopandas</span></code></p>
+<p><img alt="pip_geopandas" src="../_images/pip_geopandas.png" /></p>
+</section>
+<section id="how-to-remove-the-virtual-environment-and-create-a-new-one">
+<h3>1.2 - How to Remove the Virtual Environment and Create a New One<a class="headerlink" href="#how-to-remove-the-virtual-environment-and-create-a-new-one" title="Link to this heading">#</a></h3>
+<p>If packages are kept preventing from successful installation on your local computer, one of the reasons (in addition to your computer setting, Anaconda, etc.) could be that the setup of your virual environment was messed up. You can try the following command to remove it.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">gir</span> <span class="pre">--all</span></code></p></li>
+</ul>
+<p>And then create the virual environment again with the commands shown in Lab 1.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="geopandas-for-spatial-data">
+<h2>2 - GeoPandas for Spatial Data<a class="headerlink" href="#geopandas-for-spatial-data" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://geopandas.org/en/stable/">GeoPandas</a> is designed to process spatial data in Python. Geopandas combines the capabilities of the data analysis library Pandas with other packages like <a class="reference external" href="https://shapely.readthedocs.io/en/stable/manual.html">shapely</a> and <a class="reference external" href="https://fiona.readthedocs.io/en/stable/">fiona</a> for managing spatial data.</p>
+<p><img alt="shapely" src="../_images/shapely.png" />
+<img alt="fiona" src="../_images/fiona.png" /></p>
+<p>GeoPandas can manipulate geometries, read and write files in GIS formats, inherit powerful functionalities from Pandas… Generally speaking, it allows us to perform geospatial processing in a <strong>spatial-database</strong> manner.</p>
+<section id="installation-on-your-computer">
+<h3>2.1 - Installation on Your Computer<a class="headerlink" href="#installation-on-your-computer" title="Link to this heading">#</a></h3>
+<p>Open the <strong>Anaconda Prompt</strong> command-line interface (CLI), and type the following commands (same as Lab 1).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">gir</span> <span class="pre">##</span> <span class="pre">activate</span> <span class="pre">the</span> <span class="pre">environment</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">geopandas</span> <span class="pre">##</span> <span class="pre">install</span> <span class="pre">geopandas</span></code></p></li>
+</ul>
+<p>This could take a while… [Hint: <em>you are welcome to return to Colab for later experiments if it takes too long.</em>]</p>
+<p><img alt="conda_install_geopandas" src="../_images/conda_install_geopandas.png" /></p>
+<p>GeoPandas installation often requires troubleshooting because of dependency issues. This is why we use <a class="reference external" href="https://conda-forge.org/">conda-forge</a>. Conda packages are maintained by Anaconda, Inc., while conda-forge packages are maintained by the community, which is more up-to-date. More information about GeoPandas installation can be found <a class="reference external" href="https://geopandas.org/en/stable/getting_started/install.html">here</a>.</p>
+<p><img alt="conda_forge1" src="../_images/conda_forge1.png" />
+<img alt="conda_forge2" src="../_images/conda_forge2.png" /></p>
+</section>
+<section id="geopandas-v-s-pandas-for-non-spatial-data">
+<h3>2.2 - GeoPandas v.s. Pandas (for Non-spatial Data)<a class="headerlink" href="#geopandas-v-s-pandas-for-non-spatial-data" title="Link to this heading">#</a></h3>
+<p>The two key components in Pandas are <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html">Series</a> and <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>. A Series is essentially a column, and a DataFrame is a multi-dimensional table made up of a collection of Series.</p>
+<p><img alt="series_dataframe" src="../_images/series_dataframe.png" /></p>
+<p>Similarly, the main data structures in GeoPandas are <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/geoseries.html">GeoSeries</a> and <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.html">GeoDataFrame</a>. They extend the capabilities of Series and DataFrame, respectively.</p>
+<p>The key difference between GeoDataFrame and DataFrame is that a GeoDataFrame should contain at least one column for geometries. By default, the name of this column is <strong>geometry</strong>. The geometry column is a GeoSeries that contains the geometries (points, lines, polygons, multipolygons, etc.) as shapely objects.</p>
+<p>[Hint: <em>In our course, we will focus on learning to use GeoPandas. The takeaway can easily transfer to Pandas.</em>]</p>
+<p><img alt="geodataframe" src="../_images/geodataframe.png" /></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="working-with-natural-earth-vector-data">
+<h2>3 - Working with <a class="reference external" href="https://www.naturalearthdata.com/">Natural Earth</a> Vector Data<a class="headerlink" href="#working-with-natural-earth-vector-data" title="Link to this heading">#</a></h2>
+<p><img alt="natural_earth" src="../_images/natural_earth.png" /></p>
+<section id="data-download">
+<h3>3.1 - Data Download<a class="headerlink" href="#data-download" title="Link to this heading">#</a></h3>
+<p>Go to the <strong>Downloads</strong> tab and click on the <strong>Cultural</strong> category of <strong>Large scale data, 1:10m</strong>. Then, download vector data (the one with 4.7 MB) for <strong>Admin 0 - countries</strong>. Extract the zip file to the same directory of the Jupyter notebook.</p>
+<p><img alt="download_natural_earth" src="../_images/download_natural_earth.png" />
+<img alt="admin0_countries" src="../_images/admin0_countries.png" /></p>
+</section>
+<section id="load-data">
+<h3>3.2 - Load Data<a class="headerlink" href="#load-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span> <span class="c1">## use the abbreviation of an imported package (if necessary)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;ne_10m_admin_0_countries/ne_10m_admin_0_countries.shp&#39;</span><span class="p">)</span> <span class="c1">## read shapefile</span>
+
+<span class="c1">## show the first several records</span>
+<span class="c1">## the default number is 5</span>
+<span class="c1">## try to comment this line of code, and uncomment one of the rest and run the cell again</span>
+<span class="n">df_countries</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># df_countries.head(1) ## try to uncomment and output the first record</span>
+<span class="c1"># df_countries.tail() ## try to uncomment and output the last five records</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-analysis">
+<h3>3.3 - Statistical Analysis<a class="headerlink" href="#statistical-analysis" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## This method prints information about a GeoDataFrame.</span>
+<span class="n">df_countries</span><span class="o">.</span><span class="n">info</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1">## descriptive statistics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, how many columns (i.e., fields) do we have in the GeoDataFrame?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df_countries</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The answer is 169. Only, <strong>numerical</strong> fields can be involved in the descriptive statistical analysis.</p>
+</section>
+<section id="querying-over-geodataframe">
+<h3>3.4 - Querying over GeoDataFrame<a class="headerlink" href="#querying-over-geodataframe" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## make sure to use the double equal sign</span>
+<span class="n">df_countries_austria</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Austria&#39;</span><span class="p">]</span> 
+<span class="n">df_countries_austria</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we want to know more about Austria, we can choose one of the fields the GeoDataFrame has.</p>
+<p>Here we will choose ‘LEVEL’. The result indicates that Austria’s ‘LEVEL’ is 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries_austria</span><span class="p">[</span><span class="s1">&#39;LEVEL&#39;</span><span class="p">]</span>
+<span class="c1">## Alternatively, you can try...</span>
+<span class="c1"># df_countries_austria.LEVEL</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Is there any countries that have a ‘LEVEL’ not equal to 2?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;LEVEL&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">]</span> <span class="c1">## != means &#39;not equal to&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like there are two countries, Kazakhastan and Cuba, that meet this search criteria.</p>
+</section>
+<section id="coordinate-system-transformation">
+<h3>3.5 - Coordinate System Transformation<a class="headerlink" href="#coordinate-system-transformation" title="Link to this heading">#</a></h3>
+<p>What kind of coordinate system does the country data use?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is a geographic coordinate system <strong>WGS 84</strong>, represented as <a class="reference external" href="https://epsg.io/4326">EPSG:4326</a> by <a class="reference external" href="https://epsg.io/">EPSG</a>. EPSG is a open-source web service with a database consisting of all widely-used coordinate reference systems with unique Uniform Resource Locators (URLs) on the web.</p>
+<p><img alt="wgs84" src="../_images/wgs84.png" /></p>
+<p>Assume now we want to compute distances among European countries. Therefore, a projected coordinate system that preserve distance is required. Here we choose a system that uses the equidistant conic projection, which is <a class="reference external" href="https://epsg.io/102031">ESRI:102031</a>.</p>
+<p><img alt="esri_102031" src="../_images/esri_102031.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## use to_crs to do coordinate system transformation</span>
+<span class="n">df_countries_projected</span> <span class="o">=</span> <span class="n">df_countries</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;ESRI:102031&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check the difference in how geometries are represented.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## geometries represented in a geographic coordinate system</span>
+<span class="n">df_countries</span><span class="o">.</span><span class="n">geometry</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## geometries represented in a projected coordinate system</span>
+<span class="n">df_countries_projected</span><span class="o">.</span><span class="n">geometry</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, you can browse information about ESRI:102031, e.g., Area of Use, Datum (different from WGS 84), etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries_projected</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="distance-computation">
+<h3>3.6 - Distance Computation<a class="headerlink" href="#distance-computation" title="Link to this heading">#</a></h3>
+<p>Now we would like to compute the distance between Austria and Italy based on their centroids. We will extract their planar coordinates first, and then compute Eucliean distances.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## get centroids respectively</span>
+<span class="n">centroid_aut_planar</span> <span class="o">=</span> <span class="n">df_countries_projected</span><span class="p">[</span><span class="n">df_countries_projected</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Austria&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">centroid_ita_planar</span> <span class="o">=</span> <span class="n">df_countries_projected</span><span class="p">[</span><span class="n">df_countries_projected</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Italy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## get x and y coordinates respectively</span>
+<span class="n">x1_planar</span> <span class="o">=</span> <span class="n">centroid_aut_planar</span><span class="o">.</span><span class="n">x</span>
+<span class="n">x2_planar</span> <span class="o">=</span> <span class="n">centroid_ita_planar</span><span class="o">.</span><span class="n">x</span>
+<span class="n">y1_planar</span> <span class="o">=</span> <span class="n">centroid_aut_planar</span><span class="o">.</span><span class="n">y</span>
+<span class="n">y2_planar</span> <span class="o">=</span> <span class="n">centroid_ita_planar</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import math to help compute the square and square root</span>
+<span class="kn">import</span> <span class="nn">math</span> 
+
+<span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">x1_planar</span><span class="o">-</span><span class="n">x2_planar</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">y1_planar</span><span class="o">-</span><span class="n">y2_planar</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The distance is approximately 564 kilomters.</p>
+</section>
+</section>
+<section id="submission">
+<h2>4 - Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
+<p>For the participation grade, try the codes above and compute the great-circle distance using the Haversine Formula. Observe the difference in how distances can be. It is also natural that warning messages may pop up because it is not a standard practice of computing centroids within a geographic coordinate system. You are welcome to switch Austria-Italy to any other pairs of countries for comparison.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## getting latitudes and longitudes</span>
+<span class="c1"># you don&#39;t need a separate line here, this is just to show everthing in pdf</span>
+<span class="n">centroid_1</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> 
+                          <span class="o">==</span> <span class="s1">&#39;Austria&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">centroid_2</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> 
+                          <span class="o">==</span> <span class="s1">&#39;Italy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="n">centroid_1</span><span class="o">.</span><span class="n">x</span> <span class="c1">#longitude</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">centroid_2</span><span class="o">.</span><span class="n">x</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="n">centroid_1</span><span class="o">.</span><span class="n">y</span> <span class="c1">#latitude</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">centroid_2</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">radians</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">asin</span><span class="p">,</span> <span class="n">sqrt</span>
+
+<span class="k">def</span> <span class="nf">haversine</span><span class="p">(</span><span class="n">lon1</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">lat2</span><span class="p">):</span>
+    <span class="n">lon1</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">lat2</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">radians</span><span class="p">,</span> <span class="p">[</span><span class="n">lon1</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">lat2</span><span class="p">])</span>
+    <span class="n">dlon</span> <span class="o">=</span> <span class="n">lon2</span> <span class="o">-</span> <span class="n">lon1</span> 
+    <span class="n">dlat</span> <span class="o">=</span> <span class="n">lat2</span> <span class="o">-</span> <span class="n">lat1</span> 
+    <span class="n">a</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">dlat</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">lat2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">dlon</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">6371</span> <span class="o">*</span> <span class="n">asin</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note that x is longitude, y is latitude here</span>
+<span class="n">haversine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make sure that you deactivate the environment in the end. Type the following the command to do so.</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></p>
+<p><img alt="conda_deactivate" src="../_images/conda_deactivate.png" /></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lab"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lab_1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 1 - Installation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Assignment/Assignment_1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">1 - Troubleshooting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-alternative-choices-of-using-jupyter-notebook">1.1 - Google Colab: Alternative Choices of Using Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-remove-the-virtual-environment-and-create-a-new-one">1.2 - How to Remove the Virtual Environment and Create a New One</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-for-spatial-data">2 - GeoPandas for Spatial Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-on-your-computer">2.1 - Installation on Your Computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-v-s-pandas-for-non-spatial-data">2.2 - GeoPandas v.s. Pandas (for Non-spatial Data)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-natural-earth-vector-data">3 - Working with Natural Earth Vector Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download">3.1 - Data Download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">3.2 - Load Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis">3.3 - Statistical Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-over-geodataframe">3.4 - Querying over GeoDataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-system-transformation">3.5 - Coordinate System Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-computation">3.6 - Distance Computation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">4 - Submission</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Meilin Shi and Zilong Liu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
