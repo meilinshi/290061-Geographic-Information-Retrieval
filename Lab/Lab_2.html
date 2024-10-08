@@ -402,11 +402,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">1 - Troubleshooting</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-alternative-choices-of-using-jupyter-notebook">1.1 - Google Colab: Alternative Choices of Using Jupyter Notebook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-remove-the-virtual-environment-and-create-a-new-one">1.2 - How to Remove the Virtual Environment and Create a New One</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterhub">1.3 - JupyterHub</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-for-spatial-data">2 - GeoPandas for Spatial Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-on-your-computer">2.1 - Installation on Your Computer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-v-s-pandas-for-non-spatial-data">2.2 - GeoPandas v.s. Pandas (for Non-spatial Data)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-v-s-pandas-for-non-spatial-data">2.1 - GeoPandas v.s. Pandas (for Non-spatial Data)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-natural-earth-vector-data">3 - Working with Natural Earth Vector Data</a><ul class="nav section-nav flex-column">
@@ -438,20 +438,13 @@ document.write(`
 <h2>1 - Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
 <section id="google-colab-alternative-choices-of-using-jupyter-notebook">
 <h3>1.1 - Google Colab: Alternative Choices of Using Jupyter Notebook<a class="headerlink" href="#google-colab-alternative-choices-of-using-jupyter-notebook" title="Link to this heading">#</a></h3>
-<p>Google Colab can serve as a backup plan in case <strong>conda</strong> on both your local and lab computers is not working.</p>
+<p>Google Colab can serve as the first backup plan in case <strong>conda</strong> on both your local and lab computers are not working.</p>
 <p><img alt="colab" src="../_images/colab.png" /></p>
 <p><strong>You can go to Colab from <a class="reference external" href="https://colab.google">here</a>.</strong></p>
 <p>To check third-party packages that have already been installed in Colab, execute the following command with <a class="reference external" href="https://pypi.org/project/pip">pip</a> (rather than <a class="reference external" href="https://docs.conda.io/en/latest/">conda</a>). Make sure to start with an exclamation mark <strong>!</strong> to tell Jupyter Notebook to run the command as a shell command (rather than as Python codes).</p>
 <p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">list</span></code></p>
 <p>You may also see <strong>Pandas</strong> from the list.</p>
 <p><img alt="pip_list" src="../_images/pip_list.png" /></p>
-<p>From here you can install the packages that you need.</p>
-<p><strong>For instance, we can install <strong>GeoPandas</strong>, which will be used in this session.</strong></p>
-<p>To do so, you can execute the following command…</p>
-<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">geopandas</span></code></p>
-<p>… and then run the code below to check whether the installation is successful.</p>
-<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">geopandas</span></code></p>
-<p><img alt="pip_geopandas" src="../_images/pip_geopandas.png" /></p>
 </section>
 <section id="how-to-remove-the-virtual-environment-and-create-a-new-one">
 <h3>1.2 - How to Remove the Virtual Environment and Create a New One<a class="headerlink" href="#how-to-remove-the-virtual-environment-and-create-a-new-one" title="Link to this heading">#</a></h3>
@@ -460,6 +453,23 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">gir</span> <span class="pre">--all</span></code></p></li>
 </ul>
 <p>And then create the virual environment again with the commands shown in Lab 1.</p>
+<p>From here you can install the packages that you need.</p>
+<p><strong>For instance, we can install <strong>GeoPandas</strong>, which will be used in this session.</strong></p>
+<p>To do so, you can execute the following command…</p>
+<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">geopandas</span></code></p>
+<p>… and then run the code below to check whether the installation is successful.</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">geopandas</span></code></p>
+<p><img alt="pip_geopandas" src="../_images/pip_geopandas.png" /></p>
+</section>
+<section id="jupyterhub">
+<h3>1.3 - JupyterHub<a class="headerlink" href="#jupyterhub" title="Link to this heading">#</a></h3>
+<p>Now we have a brand new solution which frees us from installing the virtual programming environment locally or using Google Colab. The solution is <strong>JupyterHub</strong>, set up by our IT. You can access it on our course Moodle webpage.
+<img alt="jupyterhub_1" src="../_images/jupyterhub_1.png" /></p>
+<p>When you enter JupyterHub, click <strong>Start My Server</strong>.
+<img alt="jupyterhub_2" src="../_images/jupyterhub_2.png" /></p>
+<p>After that, select <strong>IT_Geo</strong>.
+<img alt="jupyterhub_3" src="../_images/jupyterhub_3.png" /></p>
+<p>You are ready to go! And start from this lab session, let us use JupyterHub.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -469,21 +479,8 @@ document.write(`
 <p><img alt="shapely" src="../_images/shapely.png" />
 <img alt="fiona" src="../_images/fiona.png" /></p>
 <p>GeoPandas can manipulate geometries, read and write files in GIS formats, inherit powerful functionalities from Pandas… Generally speaking, it allows us to perform geospatial processing in a <strong>spatial-database</strong> manner.</p>
-<section id="installation-on-your-computer">
-<h3>2.1 - Installation on Your Computer<a class="headerlink" href="#installation-on-your-computer" title="Link to this heading">#</a></h3>
-<p>Open the <strong>Anaconda Prompt</strong> command-line interface (CLI), and type the following commands (same as Lab 1).</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">gir</span> <span class="pre">##</span> <span class="pre">activate</span> <span class="pre">the</span> <span class="pre">environment</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">geopandas</span> <span class="pre">##</span> <span class="pre">install</span> <span class="pre">geopandas</span></code></p></li>
-</ul>
-<p>This could take a while… [Hint: <em>you are welcome to return to Colab for later experiments if it takes too long.</em>]</p>
-<p><img alt="conda_install_geopandas" src="../_images/conda_install_geopandas.png" /></p>
-<p>GeoPandas installation often requires troubleshooting because of dependency issues. This is why we use <a class="reference external" href="https://conda-forge.org/">conda-forge</a>. Conda packages are maintained by Anaconda, Inc., while conda-forge packages are maintained by the community, which is more up-to-date. More information about GeoPandas installation can be found <a class="reference external" href="https://geopandas.org/en/stable/getting_started/install.html">here</a>.</p>
-<p><img alt="conda_forge1" src="../_images/conda_forge1.png" />
-<img alt="conda_forge2" src="../_images/conda_forge2.png" /></p>
-</section>
 <section id="geopandas-v-s-pandas-for-non-spatial-data">
-<h3>2.2 - GeoPandas v.s. Pandas (for Non-spatial Data)<a class="headerlink" href="#geopandas-v-s-pandas-for-non-spatial-data" title="Link to this heading">#</a></h3>
+<h3>2.1 - GeoPandas v.s. Pandas (for Non-spatial Data)<a class="headerlink" href="#geopandas-v-s-pandas-for-non-spatial-data" title="Link to this heading">#</a></h3>
 <p>The two key components in Pandas are <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html">Series</a> and <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>. A Series is essentially a column, and a DataFrame is a multi-dimensional table made up of a collection of Series.</p>
 <p><img alt="series_dataframe" src="../_images/series_dataframe.png" /></p>
 <p>Similarly, the main data structures in GeoPandas are <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/geoseries.html">GeoSeries</a> and <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.html">GeoDataFrame</a>. They extend the capabilities of Series and DataFrame, respectively.</p>
@@ -722,9 +719,6 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Make sure that you deactivate the environment in the end. Type the following the command to do so.</p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></p>
-<p><img alt="conda_deactivate" src="../_images/conda_deactivate.png" /></p>
 </section>
 </section>
 
@@ -795,11 +789,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">1 - Troubleshooting</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-alternative-choices-of-using-jupyter-notebook">1.1 - Google Colab: Alternative Choices of Using Jupyter Notebook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-remove-the-virtual-environment-and-create-a-new-one">1.2 - How to Remove the Virtual Environment and Create a New One</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterhub">1.3 - JupyterHub</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-for-spatial-data">2 - GeoPandas for Spatial Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-on-your-computer">2.1 - Installation on Your Computer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-v-s-pandas-for-non-spatial-data">2.2 - GeoPandas v.s. Pandas (for Non-spatial Data)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-v-s-pandas-for-non-spatial-data">2.1 - GeoPandas v.s. Pandas (for Non-spatial Data)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-natural-earth-vector-data">3 - Working with Natural Earth Vector Data</a><ul class="nav section-nav flex-column">
