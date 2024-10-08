@@ -2,4 +2,4 @@
 
 Th. 03.10.24 15:00 -17:00
 
-[![Google Slides](../figs/preface.png)](https://docs.google.com/presentation/d/1zd1b_g-7u1YnB_aBxJyzVhURZKnSvnMphISjMROtdCs/edit?usp=sharing)
+[![Google Slides](../figs/preface.png)](https://docs.google.com/presentation/d/1kbtjYyen-P1bfqkK-FwSERlpTnnhWkntgb18T29FTVA/edit?usp=sharing)
