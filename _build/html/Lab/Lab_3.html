@@ -1,0 +1,1423 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 3 - Spatial Relations &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lab/Lab_3';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 1" href="../Assignment/Assignment_1.html" />
+    <link rel="prev" title="Lab 2 - Spatial Data" href="Lab_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W) - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_1.html">Lecture 1: A Course Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_2.html">Lecture 2: Basic Models of Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_3.html">Lecture 3: Spatial Language in Documents and Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_4.html">Lecture 4: Georeferencing I - Geoparsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_5.html">Lecture 5: Georeferencing II - Geocoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_6.html">Lecture 6: Spatial Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_7.html">Lecture 7: Relevance Ranking for GIR Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_8.html">Lecture 8: Geospatial Semantics I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_9.html">Lecture 9: Geospatial Semantics II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_10.html">Lecture 10: Ongoing Research and Challenges in GIR</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lab_1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_2.html">Lab 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Final Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/meilinshi/290061-Geographic-Information-Retrieval" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/meilinshi/290061-Geographic-Information-Retrieval/issues/new?title=Issue%20on%20page%20%2FLab/Lab_3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lab/Lab_3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 3 - Spatial Relations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-spatial-relations-and-plotting">1 - Calculate Spatial Relations and Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1.1 - Read Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-earthquake-dataset">1.2 - Plot the earthquake dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-joins-between-two-geodataframes">1.3 - Spatial Joins between two GeoDataFrames</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-folium">2 - Plotting with Folium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leaflet">2.1 - Leaflet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">2.2 - Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">3 - Submission</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-spatial-relations">
+<h1>Lab 3 - Spatial Relations<a class="headerlink" href="#lab-3-spatial-relations" title="Link to this heading">#</a></h1>
+<p>Th. 17.10.2024 15:00-17:00</p>
+<hr class="docutils" />
+<section id="calculate-spatial-relations-and-plotting">
+<h2>1 - Calculate Spatial Relations and Plotting<a class="headerlink" href="#calculate-spatial-relations-and-plotting" title="Link to this heading">#</a></h2>
+<section id="read-data">
+<h3>1.1 - Read Data<a class="headerlink" href="#read-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the same shapefile from lab 2</span>
+
+<span class="n">df_countries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;ne_10m_admin_0_countries/ne_10m_admin_0_countries.shp&#39;</span><span class="p">)</span>
+<span class="n">df_countries</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>featurecla</th>
+      <th>scalerank</th>
+      <th>LABELRANK</th>
+      <th>SOVEREIGNT</th>
+      <th>SOV_A3</th>
+      <th>ADM0_DIF</th>
+      <th>LEVEL</th>
+      <th>TYPE</th>
+      <th>TLC</th>
+      <th>ADMIN</th>
+      <th>...</th>
+      <th>FCLASS_TR</th>
+      <th>FCLASS_ID</th>
+      <th>FCLASS_PL</th>
+      <th>FCLASS_GR</th>
+      <th>FCLASS_IT</th>
+      <th>FCLASS_NL</th>
+      <th>FCLASS_SE</th>
+      <th>FCLASS_BD</th>
+      <th>FCLASS_UA</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Admin-0 country</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Indonesia</td>
+      <td>IDN</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Sovereign country</td>
+      <td>1</td>
+      <td>Indonesia</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>MULTIPOLYGON (((117.70361 4.16341, 117.70361 4...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Admin-0 country</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Malaysia</td>
+      <td>MYS</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Sovereign country</td>
+      <td>1</td>
+      <td>Malaysia</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>MULTIPOLYGON (((117.70361 4.16341, 117.69711 4...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Admin-0 country</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Chile</td>
+      <td>CHL</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Sovereign country</td>
+      <td>1</td>
+      <td>Chile</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>MULTIPOLYGON (((-69.51009 -17.50659, -69.50611...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Admin-0 country</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Bolivia</td>
+      <td>BOL</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Sovereign country</td>
+      <td>1</td>
+      <td>Bolivia</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>POLYGON ((-69.51009 -17.50659, -69.51009 -17.5...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Admin-0 country</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Peru</td>
+      <td>PER</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Sovereign country</td>
+      <td>1</td>
+      <td>Peru</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>MULTIPOLYGON (((-69.51009 -17.50659, -69.63832...</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 169 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check coordinate reference systems</span>
+<span class="n">df_countries</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Geographic 2D CRS: EPSG:4326&gt;
+Name: WGS 84
+Axis Info [ellipsoidal]:
+- Lat[north]: Geodetic latitude (degree)
+- Lon[east]: Geodetic longitude (degree)
+Area of Use:
+- name: World.
+- bounds: (-180.0, -90.0, 180.0, 90.0)
+Datum: World Geodetic System 1984 ensemble
+- Ellipsoid: WGS 84
+- Prime Meridian: Greenwich
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read point dataset of earthquakes catalogue(1970-2014) from Humanitarian Data Exchange</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://data.humdata.org/dataset/4881d82b-ba63-4515-b748-c364f3d05b42/resource/10ac8776-5141-494b-b3cd-bf7764b2f964/download/earthquakes1970-2014.csv&#39;</span>
+<span class="n">earthquakes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">earthquakes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DateTime</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Depth</th>
+      <th>Magnitude</th>
+      <th>MagType</th>
+      <th>NbStations</th>
+      <th>Gap</th>
+      <th>Distance</th>
+      <th>RMS</th>
+      <th>Source</th>
+      <th>EventID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1970/01/04 17:00:40.20</td>
+      <td>24.139</td>
+      <td>102.503</td>
+      <td>31.0</td>
+      <td>7.5</td>
+      <td>Ms</td>
+      <td>90.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NEI</td>
+      <td>1.970010e+09</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1970/01/06 05:35:51.80</td>
+      <td>-9.628</td>
+      <td>151.458</td>
+      <td>8.0</td>
+      <td>6.2</td>
+      <td>Ms</td>
+      <td>85.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NEI</td>
+      <td>1.970011e+09</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1970/01/08 17:12:39.10</td>
+      <td>-34.741</td>
+      <td>178.568</td>
+      <td>179.0</td>
+      <td>6.1</td>
+      <td>Mb</td>
+      <td>59.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NEI</td>
+      <td>1.970011e+09</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1970/01/10 12:07:08.60</td>
+      <td>6.825</td>
+      <td>126.737</td>
+      <td>73.0</td>
+      <td>6.1</td>
+      <td>Mb</td>
+      <td>91.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NEI</td>
+      <td>1.970011e+09</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1970/01/16 08:05:39.00</td>
+      <td>60.280</td>
+      <td>-152.660</td>
+      <td>85.0</td>
+      <td>6.0</td>
+      <td>ML</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>AK</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="plot-the-earthquake-dataset">
+<h3>1.2 - Plot the earthquake dataset<a class="headerlink" href="#plot-the-earthquake-dataset" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+<span class="kn">from</span> <span class="nn">geopandas</span> <span class="kn">import</span> <span class="n">GeoDataFrame</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zip x and y coordinates into single feature</span>
+<span class="n">geometry</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">earthquakes</span><span class="p">[</span><span class="s1">&#39;Longitude&#39;</span><span class="p">],</span> <span class="n">earthquakes</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">])]</span>
+
+<span class="c1"># create a GeoPandas dataframe</span>
+<span class="c1"># designate coordinate system to be the same with countries dataframe</span>
+<span class="n">df_earthquakes</span> <span class="o">=</span> <span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">earthquakes</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">df_countries</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">)</span>   
+
+<span class="c1"># plot df_countries as base map</span>
+<span class="n">df_earthquakes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">df_countries</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0fc4599572f1e17101b317475b2ecacb852557f1b418c518034fd848d3b2c652.png" src="../_images/0fc4599572f1e17101b317475b2ecacb852557f1b418c518034fd848d3b2c652.png" />
+</div>
+</div>
+</section>
+<section id="spatial-joins-between-two-geodataframes">
+<h3>1.3 - Spatial Joins between two GeoDataFrames<a class="headerlink" href="#spatial-joins-between-two-geodataframes" title="Link to this heading">#</a></h3>
+<p>A spatial join uses binary predicates such as <strong>intersects</strong> and <strong>crosses</strong> to combine two GeoDataFrames based on the spatial relationship between their geometries.</p>
+<p>A common use case might be a spatial join between a <strong>point</strong> layer and a <strong>polygon</strong> layer where you want to <strong>retain the point geometries</strong> and grab the attributes of the intersecting polygons.</p>
+<p><strong>Types of spatial joins:</strong></p>
+<ul class="simple">
+<li><p>LEFT OUTER JOIN <code class="docutils literal notranslate"><span class="pre">(how=&quot;left&quot;)</span></code> : keep <strong>all rows</strong> from the <strong>left</strong> and duplicate them if necessary to represent multiple hits between the two dataframes. <strong>Retaining the geometries of the left.</strong></p></li>
+<li><p>RIGHT OUTER JOIN <code class="docutils literal notranslate"><span class="pre">(how=&quot;right&quot;)</span></code>: keep <strong>all rows</strong> from the <strong>right</strong> and duplicate them if necessary to represent multiple hits between the two dataframes. <strong>Retaining the geometries of the right.</strong></p></li>
+<li><p>INNER JOIN <code class="docutils literal notranslate"><span class="pre">(how=&quot;inner&quot;)</span></code>: keep rows from the <strong>right and left</strong> only where their binary predicate is <strong>TRUE</strong> and lose all rows that do not. <strong>Retaining the geometries of the left.</strong></p></li>
+</ul>
+<p>More information on spatial joins can be found <a class="reference external" href="https://geopandas.org/en/stable/gallery/spatial_joins.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a left outer join for point earthquake data within the country polygon</span>
+<span class="n">join_left_df</span> <span class="o">=</span> <span class="n">df_earthquakes</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">df_countries</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;within&quot;</span><span class="p">)</span>
+
+<span class="c1"># get the row count of the dataframe after spatial join</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">join_left_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5304
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>You can use this to find out all unique country names in df_countries:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">df_countries.SOVEREIGNT.unique()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get all earthquakes happened in Japan for example</span>
+<span class="c1"># you can change it to other countries here</span>
+<span class="n">country_of_interest</span> <span class="o">=</span> <span class="s1">&#39;Japan&#39;</span>
+
+<span class="n">country_earthquakes</span> <span class="o">=</span> <span class="n">join_left_df</span><span class="p">[</span><span class="n">join_left_df</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country_of_interest</span><span class="p">]</span>
+
+<span class="c1"># get the row count of country_earthquakes dataframe</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">country_earthquakes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a specific country from the countries base map</span>
+<span class="n">country_boundary</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country_of_interest</span><span class="p">]</span> 
+
+<span class="c1"># plot earthquake data of the specific country</span>
+<span class="n">country_earthquakes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">country_boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/38f5ed8dc9fda6f781c7f2fd9836db693c73f0062401fcf020da6c5780b7660a.png" src="../_images/38f5ed8dc9fda6f781c7f2fd9836db693c73f0062401fcf020da6c5780b7660a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note on the projected CRS before calculating buffer</span>
+<span class="c1"># otherwise you will see this warning: </span>
+<span class="c1"># UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. </span>
+<span class="c1"># Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.</span>
+
+<span class="c1"># create a new geodataframe for the buffer polygon</span>
+<span class="c1"># unit of buffer distance depends on the projected CRS, for epsg3857 it is meter</span>
+<span class="n">country_buffer</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">country_boundary</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;epsg:3857&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">20000</span><span class="p">))</span>
+
+<span class="c1"># a inner join of point earthquake data with the buffer polygon</span>
+<span class="n">country_buffer_earthquakes</span> <span class="o">=</span> <span class="n">df_earthquakes</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">country_buffer</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">df_earthquakes</span><span class="o">.</span><span class="n">crs</span><span class="p">),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;within&quot;</span><span class="p">)</span>
+
+<span class="c1"># get the row count of the dataframe after buffer</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">country_buffer_earthquakes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>82
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot earthquake data of the specific country within the 20km buffer</span>
+<span class="n">country_buffer_earthquakes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">country_buffer</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;epsg:4326&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/986e5cf72684ba042cdbe81c9ec7be3fb37c1c028851a166b6574dcbdd4c4d9a.png" src="../_images/986e5cf72684ba042cdbe81c9ec7be3fb37c1c028851a166b6574dcbdd4c4d9a.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="plotting-with-folium">
+<h2>2 - Plotting with Folium<a class="headerlink" href="#plotting-with-folium" title="Link to this heading">#</a></h2>
+<p>Folium builds on the data wrangling strengths of the Python ecosystem and the mapping strengths of the leaflet.js library. This allows you to manipulate your data in Geopandas and visualize it on a <strong>Leaflet map</strong> via Folium.</p>
+<p>More information on Folium can be found <a class="reference external" href="https://geopandas.org/en/stable/gallery/plotting_with_folium.html">here</a>.</p>
+<section id="leaflet">
+<h3>2.1 - Leaflet<a class="headerlink" href="#leaflet" title="Link to this heading">#</a></h3>
+<p>Leaflet is the leading open-source <strong>JavaScript</strong> library for <strong>mobile-friendly interactive maps</strong>. For more information, docs and tutorials, check out the <a class="reference external" href="https://leafletjs.com/">official website</a>.</p>
+<p><img alt="leaflet" src="../_images/leaflet.png" /></p>
+</section>
+<section id="installation">
+<h3>2.2 - Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<p>Folium should be already installed. <strong>If</strong> you cannot do <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">folium</span></code>, <strong>try</strong> the command:
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">folium</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get country centroid</span>
+<span class="n">centroid</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country_of_interest</span><span class="p">]</span>
+
+<span class="c1"># note on the projected CRS before calculating centroid</span>
+<span class="c1"># otherwise you will see this warning: </span>
+<span class="c1"># UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. </span>
+<span class="c1"># Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.</span>
+<span class="n">centroid</span> <span class="o">=</span> <span class="n">country_boundary</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;epsg:3857&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">country_boundary</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">(</span><span class="n">centroid</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(37.86439331803952, 138.1691246495128)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
+
+<span class="c1"># add a start location and adjust the zoom level</span>
+<span class="n">earthquake_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">(</span><span class="n">centroid</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> 
+                            <span class="n">zoom_start</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot the earthquake data</span>
+<span class="c1"># circle size is inversely proportional to the depth</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">country_earthquakes</span><span class="p">)):</span>
+    <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">country_earthquakes</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
+                            <span class="n">country_earthquakes</span><span class="p">[</span><span class="s1">&#39;Longitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">radius</span><span class="o">=</span><span class="mi">100</span><span class="o">/</span><span class="n">country_earthquakes</span><span class="p">[</span><span class="s1">&#39;Depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">earthquake_map</span><span class="p">)</span>
+<span class="n">earthquake_map</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+    
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_c83ff4f01464ba2882afb0c778240b3e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+        
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_c83ff4f01464ba2882afb0c778240b3e&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_c83ff4f01464ba2882afb0c778240b3e = L.map(
+                &quot;map_c83ff4f01464ba2882afb0c778240b3e&quot;,
+                {
+                    center: [37.86439331803952, 138.1691246495128],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_58036789bce6e2225099fad3aeffa979 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_58036789bce6e2225099fad3aeffa979.addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_67bb569d4271d6e397e79b224e9b6c53 = L.circleMarker(
+                [42.518999999999906, 142.966],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 2.1739130434782608, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_37b487147c437069d92c346c3fb9f4d1 = L.circleMarker(
+                [33.1899999999999, 131.3],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 14.285714285714286, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_5a608f89e96be8a0b211458b6cea1e3f = L.circleMarker(
+                [35.45, 139.964],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1.36986301369863, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_8bf1a9644b9f264aac6151bb1117b0ba = L.circleMarker(
+                [42.524, 142.122],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.8620689655172413, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_9d4aa36b8790e5c3df356fe904a5ad57 = L.circleMarker(
+                [33.509, 131.484],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.7911392405063291, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_9e9e164a4f406dd509cae435599e2308 = L.circleMarker(
+                [35.789, 137.488],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_879d53ed25b4be02466dd6732f1401ea = L.circleMarker(
+                [40.31, 140.361999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.6013229104028863, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_2b2867ab2677ac4dc484c79198dcc33a = L.circleMarker(
+                [35.816, 140.092999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1.183431952662722, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_a9b14345772b0bc687bc0c62f0bf0665 = L.circleMarker(
+                [39.895, 141.676999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1.4771048744460855, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_920ce329fa674e4666e836c51bb697e5 = L.circleMarker(
+                [42.564999999999905, 142.849999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.9803921568627451, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_8c9ce610fd5b20eb567b00a77587f75a = L.circleMarker(
+                [35.362, 140.214],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1.589825119236884, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_6d4b49ddd27c1677627954808a40637d = L.circleMarker(
+                [43.295, 142.419],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.564652738565782, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_1602ea14e02da81eb22dad383a186d8d = L.circleMarker(
+                [41.976999999999904, 140.66],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.8298755186721992, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_37a420fc8b5ece5ea90467d707b78323 = L.circleMarker(
+                [42.98199999999991, 144.164999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.8904719501335708, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_83f04dca7a68b29ab7398f6a608488cb = L.circleMarker(
+                [43.299999999999905, 143.691],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.9784735812133072, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_ec1839f97ddf5c35d65a9ae50aee84d0 = L.circleMarker(
+                [34.5829999999999, 135.018],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 4.566210045662101, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_7deb86a6ccad561a671cb008810116b1 = L.circleMarker(
+                [38.90899999999991, 140.53],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_15209114e0c1ffa41ffe818a1999202e = L.circleMarker(
+                [31.789, 131.313999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 2.0325203252032518, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_9cc5977b313ef642d5ea4d208e6a9908 = L.circleMarker(
+                [31.92, 130.429],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_e68a7975edc1fbaf02d0204d3e2a1466 = L.circleMarker(
+                [31.824, 130.281],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 3.0303030303030303, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_a58b3852ef89e01decc644f4094eba3f = L.circleMarker(
+                [43.813, 145.019],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.6211180124223602, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_fcd2542977e13e07fbe8035e6791e4dc = L.circleMarker(
+                [43.031999999999904, 143.835],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.9737098344693281, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_561389d17ac4623a332f9373744bcb2e = L.circleMarker(
+                [35.552, 140.464],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1.6051364365971108, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_a00ba681469617ea8a7c1824cbd7ff27 = L.circleMarker(
+                [35.456, 133.133999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_9833d2a26e307b1bc37d0be521729966 = L.circleMarker(
+                [34.0829999999999, 132.526],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 2.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_ea65d392f5654a49ae8e4bae1bd00a5d = L.circleMarker(
+                [39.402, 141.089],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.8077544426494346, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_42e5168e49018e9933262c2ca94a89ea = L.circleMarker(
+                [38.848999999999904, 141.568],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1.4705882352941178, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_b5e9058659dfe7a74284bd7d1c548344 = L.circleMarker(
+                [38.41499999999991, 140.996],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 16.666666666666668, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_29bdcbb7c812fdfa6165f5e7bb3eb863 = L.circleMarker(
+                [37.22599999999991, 138.779],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 6.25, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_a780cf34460c9616465f913446de9b1b = L.circleMarker(
+                [37.317999999999905, 138.816],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 9.523809523809524, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_6cfc92280aeeefb6262be37c85dcbaa6 = L.circleMarker(
+                [37.317999999999905, 138.807999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_243280552ab7fc50b5c13874d0fabde5 = L.circleMarker(
+                [37.28399999999991, 138.884999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 7.092198581560284, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_1e81abc815c773d2697097733836ec35 = L.circleMarker(
+                [33.134, 131.145],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.7142857142857143, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_2a0f9b322ee18bef24fed0a9585fcf97 = L.circleMarker(
+                [39.03, 140.881],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 12.820512820512821, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_2959fa3595c070ee8ac90d02185a99e0 = L.circleMarker(
+                [39.802, 141.464],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.9259259259259259, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_f211926e88379b47207b268cca86978d = L.circleMarker(
+                [35.712, 140.875],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 2.1052631578947367, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_dc5f116b0619d2d7675c514ae825ec80 = L.circleMarker(
+                [37.014, 138.376],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10.75268817204301, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_f7616a9ad76657c6c6dfef7bca3477d1 = L.circleMarker(
+                [35.2719999999999, 138.581999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 11.11111111111111, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_0bd65f0667b67564f5613e5728df5e14 = L.circleMarker(
+                [39.323, 141.949999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 2.4390243902439024, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_c712c3638751a7531350dffcf374a2d0 = L.circleMarker(
+                [37.000999999999905, 140.401],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 9.090909090909092, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_9211dee78917f0a8ee2eabc945c56c5e = L.circleMarker(
+                [37.10699999999991, 140.367999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 9.090909090909092, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_2bcd0250c8aa872d76b48f4c41586d4a = L.circleMarker(
+                [35.579, 140.305],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 2.3255813953488373, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_09c66de7e782a7080ed4ab296da5126d = L.circleMarker(
+                [43.892, 142.479],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.5347593582887701, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+    
+            var circle_marker_4e964ba37a11a6ea9a45fe5b9b918382 = L.circleMarker(
+                [42.758, 143.105999999999],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;red&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 0.9345794392523364, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_c83ff4f01464ba2882afb0c778240b3e);
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+</section>
+</section>
+<section id="submission">
+<h2>3 - Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
+<p>Try the code blocks above, choose a <strong>different</strong> country to map, and submit the .ipynb file.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lab"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lab_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 2 - Spatial Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Assignment/Assignment_1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-spatial-relations-and-plotting">1 - Calculate Spatial Relations and Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1.1 - Read Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-earthquake-dataset">1.2 - Plot the earthquake dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-joins-between-two-geodataframes">1.3 - Spatial Joins between two GeoDataFrames</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-folium">2 - Plotting with Folium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leaflet">2.1 - Leaflet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">2.2 - Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">3 - Submission</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Meilin Shi and Zilong Liu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
