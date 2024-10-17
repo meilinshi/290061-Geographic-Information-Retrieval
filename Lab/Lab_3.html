@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 2 - Spatial Data &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
+    <title>Lab 3 - Spatial Relations &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
   
   
   
@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -42,7 +42,7 @@
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Lab/Lab_3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 1" href="../Assignment/Assignment_1.html" />
+    <link rel="prev" title="Lab 2 - Spatial Data" href="Lab_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +123,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -193,13 +193,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_10.html">Lecture 10: Ongoing Research and Challenges in GIR</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Lab_1.html">Lab 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lab_2.html">Lab 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignment</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_2.html">Assignment 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
 <ul class="nav bd-sidenav">
@@ -389,7 +391,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 2 - Spatial Data</h1>
+    <h1>Lab 3 - Spatial Relations</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -399,26 +401,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">1 - Troubleshooting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-alternative-choices-of-using-jupyter-notebook">1.1 - Google Colab: Alternative Choices of Using Jupyter Notebook</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-remove-the-virtual-environment-and-create-a-new-one">1.2 - How to Remove the Virtual Environment and Create a New One</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-spatial-relations-and-plotting">1 - Calculate Spatial Relations and Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1.1 - Read Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-earthquake-dataset">1.2 - Plot the earthquake dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-joins-between-two-geodataframes">1.3 - Spatial Joins between two GeoDataFrames</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-for-spatial-data">2 - GeoPandas for Spatial Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-on-your-computer">2.1 - Installation on Your Computer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-v-s-pandas-for-non-spatial-data">2.2 - GeoPandas v.s. Pandas (for Non-spatial Data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-folium">2 - Plotting with Folium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leaflet">2.1 - Leaflet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">2.2 - Installation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-natural-earth-vector-data">3 - Working with Natural Earth Vector Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download">3.1 - Data Download</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">3.2 - Load Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis">3.3 - Statistical Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-over-geodataframe">3.4 - Querying over GeoDataFrame</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-system-transformation">3.5 - Coordinate System Transformation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-computation">3.6 - Distance Computation</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">4 - Submission</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">3 - Submission</a></li>
 </ul>
             </nav>
         </div>
@@ -430,301 +424,209 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-2-spatial-data">
-<h1>Lab 2 - Spatial Data<a class="headerlink" href="#lab-2-spatial-data" title="Link to this heading">#</a></h1>
-<p>Th. 10.10.2024 15:00-17:00</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-spatial-relations">
+<h1>Lab 3 - Spatial Relations<a class="headerlink" href="#lab-3-spatial-relations" title="Link to this heading">#</a></h1>
+<p>Th. 17.10.2024 15:00-17:00</p>
 <hr class="docutils" />
-<section id="troubleshooting">
-<h2>1 - Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
-<section id="google-colab-alternative-choices-of-using-jupyter-notebook">
-<h3>1.1 - Google Colab: Alternative Choices of Using Jupyter Notebook<a class="headerlink" href="#google-colab-alternative-choices-of-using-jupyter-notebook" title="Link to this heading">#</a></h3>
-<p>Google Colab can serve as a backup plan in case <strong>conda</strong> on both your local and lab computers is not working.</p>
-<p><img alt="colab" src="../_images/colab.png" /></p>
-<p><strong>You can go to Colab from <a class="reference external" href="https://colab.google">here</a>.</strong></p>
-<p>To check third-party packages that have already been installed in Colab, execute the following command with <a class="reference external" href="https://pypi.org/project/pip">pip</a> (rather than <a class="reference external" href="https://docs.conda.io/en/latest/">conda</a>). Make sure to start with an exclamation mark <strong>!</strong> to tell Jupyter Notebook to run the command as a shell command (rather than as Python codes).</p>
-<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">list</span></code></p>
-<p>You may also see <strong>Pandas</strong> from the list.</p>
-<p><img alt="pip_list" src="../_images/pip_list.png" /></p>
-<p>From here you can install the packages that you need.</p>
-<p><strong>For instance, we can install <strong>GeoPandas</strong>, which will be used in this session.</strong></p>
-<p>To do so, you can execute the following command…</p>
-<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">geopandas</span></code></p>
-<p>… and then run the code below to check whether the installation is successful.</p>
-<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">geopandas</span></code></p>
-<p><img alt="pip_geopandas" src="../_images/pip_geopandas.png" /></p>
+<section id="calculate-spatial-relations-and-plotting">
+<h2>1 - Calculate Spatial Relations and Plotting<a class="headerlink" href="#calculate-spatial-relations-and-plotting" title="Link to this heading">#</a></h2>
+<section id="read-data">
+<h3>1.1 - Read Data<a class="headerlink" href="#read-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the same shapefile from lab 2</span>
+
+<span class="n">df_countries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;ne_10m_admin_0_countries/ne_10m_admin_0_countries.shp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check coordinate reference systems</span>
+<span class="n">df_countries</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read point dataset of earthquakes catalogue(1970-2014) from Humanitarian Data Exchange</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://data.humdata.org/dataset/4881d82b-ba63-4515-b748-c364f3d05b42/resource/10ac8776-5141-494b-b3cd-bf7764b2f964/download/earthquakes1970-2014.csv&#39;</span>
+<span class="n">earthquakes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">earthquakes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="how-to-remove-the-virtual-environment-and-create-a-new-one">
-<h3>1.2 - How to Remove the Virtual Environment and Create a New One<a class="headerlink" href="#how-to-remove-the-virtual-environment-and-create-a-new-one" title="Link to this heading">#</a></h3>
-<p>If packages are kept preventing from successful installation on your local computer, one of the reasons (in addition to your computer setting, Anaconda, etc.) could be that the setup of your virual environment was messed up. You can try the following command to remove it.</p>
+<section id="plot-the-earthquake-dataset">
+<h3>1.2 - Plot the earthquake dataset<a class="headerlink" href="#plot-the-earthquake-dataset" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+<span class="kn">from</span> <span class="nn">geopandas</span> <span class="kn">import</span> <span class="n">GeoDataFrame</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zip x and y coordinates into single feature</span>
+<span class="n">geometry</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">earthquakes</span><span class="p">[</span><span class="s1">&#39;Longitude&#39;</span><span class="p">],</span> <span class="n">earthquakes</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">])]</span>
+
+<span class="c1"># create a GeoPandas dataframe</span>
+<span class="c1"># designate coordinate system to be the same with countries dataframe</span>
+<span class="n">df_earthquakes</span> <span class="o">=</span> <span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">earthquakes</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">df_countries</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">)</span>   
+
+<span class="c1"># plot df_countries as base map</span>
+<span class="n">df_earthquakes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">df_countries</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="spatial-joins-between-two-geodataframes">
+<h3>1.3 - Spatial Joins between two GeoDataFrames<a class="headerlink" href="#spatial-joins-between-two-geodataframes" title="Link to this heading">#</a></h3>
+<p>A spatial join uses binary predicates such as <strong>intersects</strong> and <strong>crosses</strong> to combine two GeoDataFrames based on the spatial relationship between their geometries.</p>
+<p>A common use case might be a spatial join between a <strong>point</strong> layer and a <strong>polygon</strong> layer where you want to <strong>retain the point geometries</strong> and grab the attributes of the intersecting polygons.</p>
+<p><strong>Types of spatial joins:</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">gir</span> <span class="pre">--all</span></code></p></li>
+<li><p>LEFT OUTER JOIN <code class="docutils literal notranslate"><span class="pre">(how=&quot;left&quot;)</span></code> : keep <strong>all rows</strong> from the <strong>left</strong> and duplicate them if necessary to represent multiple hits between the two dataframes. <strong>Retaining the geometries of the left.</strong></p></li>
+<li><p>RIGHT OUTER JOIN <code class="docutils literal notranslate"><span class="pre">(how=&quot;right&quot;)</span></code>: keep <strong>all rows</strong> from the <strong>right</strong> and duplicate them if necessary to represent multiple hits between the two dataframes. <strong>Retaining the geometries of the right.</strong></p></li>
+<li><p>INNER JOIN <code class="docutils literal notranslate"><span class="pre">(how=&quot;inner&quot;)</span></code>: keep rows from the <strong>right and left</strong> only where their binary predicate is <strong>TRUE</strong> and lose all rows that do not. <strong>Retaining the geometries of the left.</strong></p></li>
 </ul>
-<p>And then create the virual environment again with the commands shown in Lab 1.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="geopandas-for-spatial-data">
-<h2>2 - GeoPandas for Spatial Data<a class="headerlink" href="#geopandas-for-spatial-data" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://geopandas.org/en/stable/">GeoPandas</a> is designed to process spatial data in Python. Geopandas combines the capabilities of the data analysis library Pandas with other packages like <a class="reference external" href="https://shapely.readthedocs.io/en/stable/manual.html">shapely</a> and <a class="reference external" href="https://fiona.readthedocs.io/en/stable/">fiona</a> for managing spatial data.</p>
-<p><img alt="shapely" src="../_images/shapely.png" />
-<img alt="fiona" src="../_images/fiona.png" /></p>
-<p>GeoPandas can manipulate geometries, read and write files in GIS formats, inherit powerful functionalities from Pandas… Generally speaking, it allows us to perform geospatial processing in a <strong>spatial-database</strong> manner.</p>
-<section id="installation-on-your-computer">
-<h3>2.1 - Installation on Your Computer<a class="headerlink" href="#installation-on-your-computer" title="Link to this heading">#</a></h3>
-<p>Open the <strong>Anaconda Prompt</strong> command-line interface (CLI), and type the following commands (same as Lab 1).</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">gir</span> <span class="pre">##</span> <span class="pre">activate</span> <span class="pre">the</span> <span class="pre">environment</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">geopandas</span> <span class="pre">##</span> <span class="pre">install</span> <span class="pre">geopandas</span></code></p></li>
-</ul>
-<p>This could take a while… [Hint: <em>you are welcome to return to Colab for later experiments if it takes too long.</em>]</p>
-<p><img alt="conda_install_geopandas" src="../_images/conda_install_geopandas.png" /></p>
-<p>GeoPandas installation often requires troubleshooting because of dependency issues. This is why we use <a class="reference external" href="https://conda-forge.org/">conda-forge</a>. Conda packages are maintained by Anaconda, Inc., while conda-forge packages are maintained by the community, which is more up-to-date. More information about GeoPandas installation can be found <a class="reference external" href="https://geopandas.org/en/stable/getting_started/install.html">here</a>.</p>
-<p><img alt="conda_forge1" src="../_images/conda_forge1.png" />
-<img alt="conda_forge2" src="../_images/conda_forge2.png" /></p>
-</section>
-<section id="geopandas-v-s-pandas-for-non-spatial-data">
-<h3>2.2 - GeoPandas v.s. Pandas (for Non-spatial Data)<a class="headerlink" href="#geopandas-v-s-pandas-for-non-spatial-data" title="Link to this heading">#</a></h3>
-<p>The two key components in Pandas are <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html">Series</a> and <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>. A Series is essentially a column, and a DataFrame is a multi-dimensional table made up of a collection of Series.</p>
-<p><img alt="series_dataframe" src="../_images/series_dataframe.png" /></p>
-<p>Similarly, the main data structures in GeoPandas are <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/geoseries.html">GeoSeries</a> and <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.html">GeoDataFrame</a>. They extend the capabilities of Series and DataFrame, respectively.</p>
-<p>The key difference between GeoDataFrame and DataFrame is that a GeoDataFrame should contain at least one column for geometries. By default, the name of this column is <strong>geometry</strong>. The geometry column is a GeoSeries that contains the geometries (points, lines, polygons, multipolygons, etc.) as shapely objects.</p>
-<p>[Hint: <em>In our course, we will focus on learning to use GeoPandas. The takeaway can easily transfer to Pandas.</em>]</p>
-<p><img alt="geodataframe" src="../_images/geodataframe.png" /></p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="working-with-natural-earth-vector-data">
-<h2>3 - Working with <a class="reference external" href="https://www.naturalearthdata.com/">Natural Earth</a> Vector Data<a class="headerlink" href="#working-with-natural-earth-vector-data" title="Link to this heading">#</a></h2>
-<p><img alt="natural_earth" src="../_images/natural_earth.png" /></p>
-<section id="data-download">
-<h3>3.1 - Data Download<a class="headerlink" href="#data-download" title="Link to this heading">#</a></h3>
-<p>Go to the <strong>Downloads</strong> tab and click on the <strong>Cultural</strong> category of <strong>Large scale data, 1:10m</strong>. Then, download vector data (the one with 4.7 MB) for <strong>Admin 0 - countries</strong>. Extract the zip file to the same directory of the Jupyter notebook.</p>
-<p><img alt="download_natural_earth" src="../_images/download_natural_earth.png" />
-<img alt="admin0_countries" src="../_images/admin0_countries.png" /></p>
-</section>
-<section id="load-data">
-<h3>3.2 - Load Data<a class="headerlink" href="#load-data" title="Link to this heading">#</a></h3>
+<p>More information on spatial joins can be found <a class="reference external" href="https://geopandas.org/en/stable/gallery/spatial_joins.html">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span> <span class="c1">## use the abbreviation of an imported package (if necessary)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;ne_10m_admin_0_countries/ne_10m_admin_0_countries.shp&#39;</span><span class="p">)</span> <span class="c1">## read shapefile</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a left outer join for point earthquake data within the country polygon</span>
+<span class="n">join_left_df</span> <span class="o">=</span> <span class="n">df_earthquakes</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">df_countries</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;within&quot;</span><span class="p">)</span>
 
-<span class="c1">## show the first several records</span>
-<span class="c1">## the default number is 5</span>
-<span class="c1">## try to comment this line of code, and uncomment one of the rest and run the cell again</span>
-<span class="n">df_countries</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># get the row count of the dataframe after spatial join</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">join_left_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>You can use this to find out all unique country names in df_countries:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">df_countries.SOVEREIGNT.unique()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get all earthquakes happened in Japan for example</span>
+<span class="c1"># you can change it to other countries here</span>
+<span class="n">country_of_interest</span> <span class="o">=</span> <span class="s1">&#39;Japan&#39;</span>
 
-<span class="c1"># df_countries.head(1) ## try to uncomment and output the first record</span>
-<span class="c1"># df_countries.tail() ## try to uncomment and output the last five records</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="statistical-analysis">
-<h3>3.3 - Statistical Analysis<a class="headerlink" href="#statistical-analysis" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## This method prints information about a GeoDataFrame.</span>
-<span class="n">df_countries</span><span class="o">.</span><span class="n">info</span><span class="p">()</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1">## descriptive statistics</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>However, how many columns (i.e., fields) do we have in the GeoDataFrame?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df_countries</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The answer is 169. Only, <strong>numerical</strong> fields can be involved in the descriptive statistical analysis.</p>
-</section>
-<section id="querying-over-geodataframe">
-<h3>3.4 - Querying over GeoDataFrame<a class="headerlink" href="#querying-over-geodataframe" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## make sure to use the double equal sign</span>
-<span class="n">df_countries_austria</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Austria&#39;</span><span class="p">]</span> 
-<span class="n">df_countries_austria</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>If we want to know more about Austria, we can choose one of the fields the GeoDataFrame has.</p>
-<p>Here we will choose ‘LEVEL’. The result indicates that Austria’s ‘LEVEL’ is 2.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries_austria</span><span class="p">[</span><span class="s1">&#39;LEVEL&#39;</span><span class="p">]</span>
-<span class="c1">## Alternatively, you can try...</span>
-<span class="c1"># df_countries_austria.LEVEL</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Is there any countries that have a ‘LEVEL’ not equal to 2?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;LEVEL&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">]</span> <span class="c1">## != means &#39;not equal to&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>It looks like there are two countries, Kazakhastan and Cuba, that meet this search criteria.</p>
-</section>
-<section id="coordinate-system-transformation">
-<h3>3.5 - Coordinate System Transformation<a class="headerlink" href="#coordinate-system-transformation" title="Link to this heading">#</a></h3>
-<p>What kind of coordinate system does the country data use?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span><span class="o">.</span><span class="n">crs</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>It is a geographic coordinate system <strong>WGS 84</strong>, represented as <a class="reference external" href="https://epsg.io/4326">EPSG:4326</a> by <a class="reference external" href="https://epsg.io/">EPSG</a>. EPSG is a open-source web service with a database consisting of all widely-used coordinate reference systems with unique Uniform Resource Locators (URLs) on the web.</p>
-<p><img alt="wgs84" src="../_images/wgs84.png" /></p>
-<p>Assume now we want to compute distances among European countries. Therefore, a projected coordinate system that preserve distance is required. Here we choose a system that uses the equidistant conic projection, which is <a class="reference external" href="https://epsg.io/102031">ESRI:102031</a>.</p>
-<p><img alt="esri_102031" src="../_images/esri_102031.png" /></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## use to_crs to do coordinate system transformation</span>
-<span class="n">df_countries_projected</span> <span class="o">=</span> <span class="n">df_countries</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;ESRI:102031&#39;</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<p>Check the difference in how geometries are represented.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## geometries represented in a geographic coordinate system</span>
-<span class="n">df_countries</span><span class="o">.</span><span class="n">geometry</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## geometries represented in a projected coordinate system</span>
-<span class="n">df_countries_projected</span><span class="o">.</span><span class="n">geometry</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<p>Again, you can browse information about ESRI:102031, e.g., Area of Use, Datum (different from WGS 84), etc.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries_projected</span><span class="o">.</span><span class="n">crs</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="distance-computation">
-<h3>3.6 - Distance Computation<a class="headerlink" href="#distance-computation" title="Link to this heading">#</a></h3>
-<p>Now we would like to compute the distance between Austria and Italy based on their centroids. We will extract their planar coordinates first, and then compute Eucliean distances.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## get centroids respectively</span>
-<span class="n">centroid_aut_planar</span> <span class="o">=</span> <span class="n">df_countries_projected</span><span class="p">[</span><span class="n">df_countries_projected</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Austria&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">country_earthquakes</span> <span class="o">=</span> <span class="n">join_left_df</span><span class="p">[</span><span class="n">join_left_df</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country_of_interest</span><span class="p">]</span>
 
-<span class="n">centroid_ita_planar</span> <span class="o">=</span> <span class="n">df_countries_projected</span><span class="p">[</span><span class="n">df_countries_projected</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Italy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># get the row count of country_earthquakes dataframe</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">country_earthquakes</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## get x and y coordinates respectively</span>
-<span class="n">x1_planar</span> <span class="o">=</span> <span class="n">centroid_aut_planar</span><span class="o">.</span><span class="n">x</span>
-<span class="n">x2_planar</span> <span class="o">=</span> <span class="n">centroid_ita_planar</span><span class="o">.</span><span class="n">x</span>
-<span class="n">y1_planar</span> <span class="o">=</span> <span class="n">centroid_aut_planar</span><span class="o">.</span><span class="n">y</span>
-<span class="n">y2_planar</span> <span class="o">=</span> <span class="n">centroid_ita_planar</span><span class="o">.</span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import math to help compute the square and square root</span>
-<span class="kn">import</span> <span class="nn">math</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a specific country from the countries base map</span>
+<span class="n">country_boundary</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country_of_interest</span><span class="p">]</span> 
 
-<span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">x1_planar</span><span class="o">-</span><span class="n">x2_planar</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">y1_planar</span><span class="o">-</span><span class="n">y2_planar</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1"># plot earthquake data of the specific country</span>
+<span class="n">country_earthquakes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">country_boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The distance is approximately 564 kilomters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note on the projected CRS before calculating buffer</span>
+<span class="c1"># otherwise you will see this warning: </span>
+<span class="c1"># UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. </span>
+<span class="c1"># Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.</span>
+
+<span class="c1"># create a new geodataframe for the buffer polygon</span>
+<span class="c1"># unit of buffer distance depends on the projected CRS, for epsg3857 it is meter</span>
+<span class="n">country_buffer</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">country_boundary</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;epsg:3857&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">20000</span><span class="p">))</span>
+
+<span class="c1"># a inner join of point earthquake data with the buffer polygon</span>
+<span class="n">country_buffer_earthquakes</span> <span class="o">=</span> <span class="n">df_earthquakes</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">country_buffer</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">df_earthquakes</span><span class="o">.</span><span class="n">crs</span><span class="p">),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;within&quot;</span><span class="p">)</span>
+
+<span class="c1"># get the row count of the dataframe after buffer</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">country_buffer_earthquakes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot earthquake data of the specific country within the 20km buffer</span>
+<span class="n">country_buffer_earthquakes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">country_buffer</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;epsg:4326&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plotting-with-folium">
+<h2>2 - Plotting with Folium<a class="headerlink" href="#plotting-with-folium" title="Link to this heading">#</a></h2>
+<p>Folium builds on the data wrangling strengths of the Python ecosystem and the mapping strengths of the leaflet.js library. This allows you to manipulate your data in Geopandas and visualize it on a <strong>Leaflet map</strong> via Folium.</p>
+<p>More information on Folium can be found <a class="reference external" href="https://geopandas.org/en/stable/gallery/plotting_with_folium.html">here</a>.</p>
+<section id="leaflet">
+<h3>2.1 - Leaflet<a class="headerlink" href="#leaflet" title="Link to this heading">#</a></h3>
+<p>Leaflet is the leading open-source <strong>JavaScript</strong> library for <strong>mobile-friendly interactive maps</strong>. For more information, docs and tutorials, check out the <a class="reference external" href="https://leafletjs.com/">official website</a>.</p>
+<p><img alt="leaflet" src="../_images/leaflet.png" /></p>
+</section>
+<section id="installation">
+<h3>2.2 - Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<p>Folium should be already installed. <strong>If</strong> you cannot do <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">folium</span></code>, <strong>try</strong> the command:
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">folium</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get country centroid</span>
+<span class="n">centroid</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country_of_interest</span><span class="p">]</span>
+
+<span class="c1"># note on the projected CRS before calculating centroid</span>
+<span class="c1"># otherwise you will see this warning: </span>
+<span class="c1"># UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. </span>
+<span class="c1"># Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.</span>
+<span class="n">centroid</span> <span class="o">=</span> <span class="n">country_boundary</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;epsg:3857&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">country_boundary</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">(</span><span class="n">centroid</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
+
+<span class="c1"># add a start location and adjust the zoom level</span>
+<span class="n">earthquake_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">(</span><span class="n">centroid</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> 
+                            <span class="n">zoom_start</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot the earthquake data</span>
+<span class="c1"># circle size is inversely proportional to the depth</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">country_earthquakes</span><span class="p">)):</span>
+    <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">country_earthquakes</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
+                            <span class="n">country_earthquakes</span><span class="p">[</span><span class="s1">&#39;Longitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">radius</span><span class="o">=</span><span class="mi">100</span><span class="o">/</span><span class="n">country_earthquakes</span><span class="p">[</span><span class="s1">&#39;Depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">earthquake_map</span><span class="p">)</span>
+<span class="n">earthquake_map</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="submission">
-<h2>4 - Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
-<p>For the participation grade, try the codes above and compute the great-circle distance using the Haversine Formula. Observe the difference in how distances can be. It is also natural that warning messages may pop up because it is not a standard practice of computing centroids within a geographic coordinate system. You are welcome to switch Austria-Italy to any other pairs of countries for comparison.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## getting latitudes and longitudes</span>
-<span class="c1"># you don&#39;t need a separate line here, this is just to show everthing in pdf</span>
-<span class="n">centroid_1</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> 
-                          <span class="o">==</span> <span class="s1">&#39;Austria&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">centroid_2</span> <span class="o">=</span> <span class="n">df_countries</span><span class="p">[</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;SOVEREIGNT&#39;</span><span class="p">]</span> 
-                          <span class="o">==</span> <span class="s1">&#39;Italy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">x1</span> <span class="o">=</span> <span class="n">centroid_1</span><span class="o">.</span><span class="n">x</span> <span class="c1">#longitude</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">centroid_2</span><span class="o">.</span><span class="n">x</span>
-
-<span class="n">y1</span> <span class="o">=</span> <span class="n">centroid_1</span><span class="o">.</span><span class="n">y</span> <span class="c1">#latitude</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">centroid_2</span><span class="o">.</span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">radians</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">asin</span><span class="p">,</span> <span class="n">sqrt</span>
-
-<span class="k">def</span> <span class="nf">haversine</span><span class="p">(</span><span class="n">lon1</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">lat2</span><span class="p">):</span>
-    <span class="n">lon1</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">lat2</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">radians</span><span class="p">,</span> <span class="p">[</span><span class="n">lon1</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">lat2</span><span class="p">])</span>
-    <span class="n">dlon</span> <span class="o">=</span> <span class="n">lon2</span> <span class="o">-</span> <span class="n">lon1</span> 
-    <span class="n">dlat</span> <span class="o">=</span> <span class="n">lat2</span> <span class="o">-</span> <span class="n">lat1</span> 
-    <span class="n">a</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">dlat</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">lat2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">dlon</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">6371</span> <span class="o">*</span> <span class="n">asin</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note that x is longitude, y is latitude here</span>
-<span class="n">haversine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Make sure that you deactivate the environment in the end. Type the following the command to do so.</p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></p>
-<p><img alt="conda_deactivate" src="../_images/conda_deactivate.png" /></p>
+<h2>3 - Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
+<p>Try the code blocks above, choose a <strong>different</strong> country to map, and submit the .ipynb file.</p>
 </section>
 </section>
 
@@ -758,6 +660,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Lab_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 2 - Spatial Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Assignment/Assignment_1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -774,26 +694,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">1 - Troubleshooting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-alternative-choices-of-using-jupyter-notebook">1.1 - Google Colab: Alternative Choices of Using Jupyter Notebook</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-remove-the-virtual-environment-and-create-a-new-one">1.2 - How to Remove the Virtual Environment and Create a New One</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-spatial-relations-and-plotting">1 - Calculate Spatial Relations and Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1.1 - Read Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-earthquake-dataset">1.2 - Plot the earthquake dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-joins-between-two-geodataframes">1.3 - Spatial Joins between two GeoDataFrames</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-for-spatial-data">2 - GeoPandas for Spatial Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-on-your-computer">2.1 - Installation on Your Computer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-v-s-pandas-for-non-spatial-data">2.2 - GeoPandas v.s. Pandas (for Non-spatial Data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-folium">2 - Plotting with Folium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leaflet">2.1 - Leaflet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">2.2 - Installation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-natural-earth-vector-data">3 - Working with Natural Earth Vector Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download">3.1 - Data Download</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">3.2 - Load Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis">3.3 - Statistical Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-over-geodataframe">3.4 - Querying over GeoDataFrame</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-system-transformation">3.5 - Coordinate System Transformation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-computation">3.6 - Distance Computation</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">4 - Submission</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">3 - Submission</a></li>
 </ul>
   </nav></div>
 
