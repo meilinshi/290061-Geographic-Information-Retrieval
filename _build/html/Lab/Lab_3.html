@@ -405,6 +405,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1.1 - Read Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-earthquake-dataset">1.2 - Plot the earthquake dataset</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-joins-between-two-geodataframes">1.3 - Spatial Joins between two GeoDataFrames</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buffer">1.4 - Buffer</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-folium">2 - Plotting with Folium</a><ul class="nav section-nav flex-column">
@@ -545,6 +546,12 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="buffer">
+<h3>1.4 - Buffer<a class="headerlink" href="#buffer" title="Link to this heading">#</a></h3>
+<p>Returns a GeoSeries of geometries representing all points within a given distance of each geometric object.</p>
+<p>More information on buffer can be found <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.buffer.html">here</a>.
+<img alt="buffer" src="../_images/buffer.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note on the projected CRS before calculating buffer</span>
@@ -698,6 +705,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">1.1 - Read Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-earthquake-dataset">1.2 - Plot the earthquake dataset</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-joins-between-two-geodataframes">1.3 - Spatial Joins between two GeoDataFrames</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buffer">1.4 - Buffer</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-folium">2 - Plotting with Folium</a><ul class="nav section-nav flex-column">
