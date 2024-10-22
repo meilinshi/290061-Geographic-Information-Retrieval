@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2023W) &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
+    <title>Lab 4 - Geoparsing &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
   
   
   
@@ -197,11 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Lab_1.html">Lab 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lab_2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lab_3.html">Lab 3</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2023W)</a></li>
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 4</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignment</span></p>
 <ul class="nav bd-sidenav">
@@ -396,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2023W)</h1>
+    <h1>Lab 4 - Geoparsing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -406,26 +402,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2023W)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-th-24-10-2024-15-00-17-00">Lab 4 - Th 24.10.2024 15:00-17:00</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">1 - Installation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wikipedia">1.1 - Wikipedia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy">1.2 - spaCy</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">1 - Installation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wikipedia">1.1 - Wikipedia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy">1.2 - spaCy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-know-athens-on-wikipedia">2 - Getting to Know Athens on Wikipedia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geoparsing-on-the-athens-summary">3 - Geoparsing on the Athens summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition-ner">3.1 - Named Entity Recognition (NER)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-ner-results">3.2 - Visualizing NER Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-geographic-entities">3.3 - Extracting Geographic Entities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geoparsing-performance-evaluation">3.4 - Geoparsing Performance Evaluation</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-know-athens-on-wikipedia">2 - Getting to Know Athens on Wikipedia</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#geoparsing-on-the-athens-summary">3 - Geoparsing on the Athens summary</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition-ner">3.1 - Named Entity Recognition (NER)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-ner-results">3.2 - Visualizing NER Results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-geographic-entities">3.3 - Extracting Geographic Entities</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geoparsing-performance-evaluation">3.4 - Geoparsing Performance Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">4 - Submission</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">4 - Submission</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -436,25 +427,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ps-principles-and-methods-of-application-development-geographic-information-retrieval-2023w">
-<h1>290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2023W)<a class="headerlink" href="#ps-principles-and-methods-of-application-development-geographic-information-retrieval-2023w" title="Link to this heading">#</a></h1>
-<section id="lab-4-th-24-10-2024-15-00-17-00">
-<h2>Lab 4 - Th 24.10.2024 15:00-17:00<a class="headerlink" href="#lab-4-th-24-10-2024-15-00-17-00" title="Link to this heading">#</a></h2>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-4-geoparsing">
+<h1>Lab 4 - Geoparsing<a class="headerlink" href="#lab-4-geoparsing" title="Link to this heading">#</a></h1>
+<p>Th. 24.10.2024 15:00-17:00</p>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="installation">
-<h1>1 - Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
+<section id="installation">
+<h2>1 - Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
 <p>For this lab session, we will have to use <strong>our local computers or Google Colab</strong> instead of JupyterHub.</p>
 <section id="wikipedia">
-<h2>1.1 - Wikipedia<a class="headerlink" href="#wikipedia" title="Link to this heading">#</a></h2>
+<h3>1.1 - Wikipedia<a class="headerlink" href="#wikipedia" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://www.wikipedia.org">Wikipedia</a> is a free online encyclopedia, created and edited by volunteers around the world and hosted by the <a class="reference external" href="https://wikimediafoundation.org">Wikimedia Foundation</a>. We will install a python package, also called <a class="reference external" href="https://github.com/goldsmith/Wikipedia">Wikipedia</a>, that can access and parse data from Wikipedia.</p>
 <p><img alt="wikipedia" src="../_images/wikipedia.png" /></p>
 <p>Type the following command for installation:</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">wikipedia</span></code></p>
 </section>
 <section id="spacy">
-<h2>1.2 - spaCy<a class="headerlink" href="#spacy" title="Link to this heading">#</a></h2>
+<h3>1.2 - spaCy<a class="headerlink" href="#spacy" title="Link to this heading">#</a></h3>
 <p>Next we will install spaCy and <a class="reference external" href="https://spacy.io/models/en">the small version of an English trained pipeline</a>. You can find out the installation instructions from <a class="reference external" href="https://spacy.io/usage">here</a>.
 <img alt="spaCy" src="../_images/spaCy.png" /></p>
 <p>If <code class="docutils literal notranslate"><span class="pre">conda</span></code> installation does not work, try to use <code class="docutils literal notranslate"><span class="pre">pip</span></code> installation as follows.</p>
@@ -491,9 +479,8 @@ document.write(`
 </div>
 </section>
 </section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="getting-to-know-athens-on-wikipedia">
-<h1>2 - Getting to Know Athens on Wikipedia<a class="headerlink" href="#getting-to-know-athens-on-wikipedia" title="Link to this heading">#</a></h1>
+<section id="getting-to-know-athens-on-wikipedia">
+<h2>2 - Getting to Know Athens on Wikipedia<a class="headerlink" href="#getting-to-know-athens-on-wikipedia" title="Link to this heading">#</a></h2>
 <p>In this section we will first retrieve a Wikipedia article summary about Athens, Greece. Then, we will perform preprocessing (e.g., data cleaning) on the retrieve text. For instance, we can replace <code class="docutils literal notranslate"><span class="pre">\n</span></code> (that indicates a new line) with an empty string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -505,11 +492,10 @@ document.write(`
 </div>
 </div>
 </section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="geoparsing-on-the-athens-summary">
-<h1>3 - Geoparsing on the Athens summary<a class="headerlink" href="#geoparsing-on-the-athens-summary" title="Link to this heading">#</a></h1>
+<section id="geoparsing-on-the-athens-summary">
+<h2>3 - Geoparsing on the Athens summary<a class="headerlink" href="#geoparsing-on-the-athens-summary" title="Link to this heading">#</a></h2>
 <section id="named-entity-recognition-ner">
-<h2>3.1 - Named Entity Recognition (NER)<a class="headerlink" href="#named-entity-recognition-ner" title="Link to this heading">#</a></h2>
+<h3>3.1 - Named Entity Recognition (NER)<a class="headerlink" href="#named-entity-recognition-ner" title="Link to this heading">#</a></h3>
 <p>Next, we will use the language model to perform named entity recognition.</p>
 <p><em>A named entity is a “real-world object” that’s assigned a name – for example, a person, a country, a product or a book title. spaCy can recognize various types of named entities in a document, by asking the model for a prediction. Because models are statistical and strongly depend on the examples they were trained on, this doesn’t always work perfectly and might need some tuning later, depending on your use case. Named entities are available as the <code class="docutils literal notranslate"><span class="pre">ents</span></code> property of a <code class="docutils literal notranslate"><span class="pre">Doc</span></code>. </em> (See spaCy’s <a class="reference external" href="https://spacy.io/usage/linguistic-features#named-entities">Named Entity Recognition</a>)</p>
 <div class="cell docutils container">
@@ -528,7 +514,7 @@ document.write(`
 </div>
 </section>
 <section id="visualizing-ner-results">
-<h2>3.2 - Visualizing NER Results<a class="headerlink" href="#visualizing-ner-results" title="Link to this heading">#</a></h2>
+<h3>3.2 - Visualizing NER Results<a class="headerlink" href="#visualizing-ner-results" title="Link to this heading">#</a></h3>
 <p>You can also use the built-in <a class="reference external" href="https://spacy.io/usage/visualizers#ent">displaCy visualizer</a> to highlight the detected entities and their types in your Jupyter notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,7 +526,7 @@ document.write(`
 </div>
 </section>
 <section id="extracting-geographic-entities">
-<h2>3.3 - Extracting Geographic Entities<a class="headerlink" href="#extracting-geographic-entities" title="Link to this heading">#</a></h2>
+<h3>3.3 - Extracting Geographic Entities<a class="headerlink" href="#extracting-geographic-entities" title="Link to this heading">#</a></h3>
 <p>However, what do these entity labels mean? To answer this question, we can use <code class="docutils literal notranslate"><span class="pre">spacy.explain</span></code>, a built-in function to get descriptions about an entity type.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -565,7 +551,7 @@ document.write(`
 </div>
 </section>
 <section id="geoparsing-performance-evaluation">
-<h2>3.4 - Geoparsing Performance Evaluation<a class="headerlink" href="#geoparsing-performance-evaluation" title="Link to this heading">#</a></h2>
+<h3>3.4 - Geoparsing Performance Evaluation<a class="headerlink" href="#geoparsing-performance-evaluation" title="Link to this heading">#</a></h3>
 <p>spaCy does a great job in geoparsing at first glance. However, there are a few entities that it mistook for geographic entities. For instance, (1) ‘BC’ is not an ‘ORG’, and (2) ‘the National and Kapodistrian University of Athens’ should be a single ‘ORG’ (instead of splitting into two). We can compute <strong>Precision, Recall, and F1-score</strong> based on the comparison between our ‘ground-truths’ and the model outputs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,14 +579,14 @@ document.write(`
 </div>
 </section>
 </section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="submission">
-<h1>4 - Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h1>
+<section id="submission">
+<h2>4 - Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
 <p>Try the code blocks above, retrieve a Wikipedia article summary about a different place of you interest, geoparse the text and do a simple evaluation. Lastly, submit the .ipynb file on Moodle.</p>
 <p>You are also encouraged to retrieve Wikipedia article summaries in a different language. For instance, you can run the following code to switch language to French:
 <code class="docutils literal notranslate"><span class="pre">wikipedia.set_lang(&quot;fr&quot;)</span></code></p>
 <p>If you select a different lanauge for text retrieval, you will also need to download a corresponding trained pipeline. For instance, install a French pipeline with the command:
 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">spacy</span> <span class="pre">download</span> <span class="pre">fr_core_news_sm</span></code></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -667,26 +653,21 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2023W)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-th-24-10-2024-15-00-17-00">Lab 4 - Th 24.10.2024 15:00-17:00</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">1 - Installation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wikipedia">1.1 - Wikipedia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy">1.2 - spaCy</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">1 - Installation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wikipedia">1.1 - Wikipedia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy">1.2 - spaCy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-know-athens-on-wikipedia">2 - Getting to Know Athens on Wikipedia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geoparsing-on-the-athens-summary">3 - Geoparsing on the Athens summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition-ner">3.1 - Named Entity Recognition (NER)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-ner-results">3.2 - Visualizing NER Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-geographic-entities">3.3 - Extracting Geographic Entities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geoparsing-performance-evaluation">3.4 - Geoparsing Performance Evaluation</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-know-athens-on-wikipedia">2 - Getting to Know Athens on Wikipedia</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#geoparsing-on-the-athens-summary">3 - Geoparsing on the Athens summary</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition-ner">3.1 - Named Entity Recognition (NER)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-ner-results">3.2 - Visualizing NER Results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-geographic-entities">3.3 - Extracting Geographic Entities</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geoparsing-performance-evaluation">3.4 - Geoparsing Performance Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">4 - Submission</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">4 - Submission</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
