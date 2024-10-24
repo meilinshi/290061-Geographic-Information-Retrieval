@@ -552,23 +552,26 @@ document.write(`
 </section>
 <section id="geoparsing-performance-evaluation">
 <h3>3.4 - Geoparsing Performance Evaluation<a class="headerlink" href="#geoparsing-performance-evaluation" title="Link to this heading">#</a></h3>
-<p>spaCy does a great job in geoparsing at first glance. However, there are a few entities that it mistook for geographic entities. For instance, (1) ‘BC’ is not an ‘ORG’, and (2) ‘the National and Kapodistrian University of Athens’ should be a single ‘ORG’ (instead of splitting into two). We can compute <strong>Precision, Recall, and F1-score</strong> based on the comparison between our ‘ground-truths’ and the model outputs.</p>
+<p>spaCy does a great job in geoparsing at first glance. However, there are a few entities that it mistook for geographic entities. For instance, ‘BC’ and ‘the Classical Era’ are not ‘ORG’. Therefore, the rest of the model outputs are the true positives. We can then compute <strong>Precision</strong> based on the comparison between <strong>the true positives we identified</strong> and the model outputs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">geo_ents</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">geo_ents</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">geo_ents</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">geo_ents</span><span class="p">)</span>
 <span class="n">precision</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Your turn</strong>: Assuming now you are going to compute <strong>Recall</strong> and <strong>F1 score</strong> next, you will need to find out all correct place names identified by humans. Look at the retrieved Wikipedia article again. Find out these place names for the computation as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recall</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">geo_ents</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">geo_ents</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="c1"># Fill out the number of correct place names you identified</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">geo_ents</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 <span class="n">recall</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>After your compute your <strong>Recall</strong>, you can compute <strong>F1 score</strong> below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">recall</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">precision</span><span class="p">)</span>
