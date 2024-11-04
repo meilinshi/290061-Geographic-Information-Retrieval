@@ -44,6 +44,8 @@ parts:
         title: "Assignment 1"
       - file: Assignment/Assignment_2
         title: "Assignment 2"
+      - file: Assignment/Assignment_3
+        title: "Assignment 3"
   - caption: "Project"
     chapters:
       - file: Project
