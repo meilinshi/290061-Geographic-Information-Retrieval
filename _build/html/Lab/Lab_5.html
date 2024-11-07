@@ -8,11 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<<<<<<< HEAD
-    <title>Lab 5 - Spatial Indexing &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
-=======
     <title>Lab 5 - Geocoding &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
   
   
   
@@ -32,11 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-=======
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -68,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Lab/Lab_5';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment 1" href="../Assignment/Assignment_1.html" />
+    <link rel="next" title="Lab 6 - Spatial Indexing" href="Lab_6.html" />
     <link rel="prev" title="Lab 4 - Geoparsing" href="Lab_4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -207,16 +199,14 @@
 <li class="toctree-l1"><a class="reference internal" href="Lab_3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lab_4.html">Lab 4</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_6.html">Lab 6</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignment</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_1.html">Assignment 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_2.html">Assignment 2</a></li>
-<<<<<<< HEAD
-=======
 <li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_3.html">Assignment 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_4.html">Assignment 4</a></li>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
 <ul class="nav bd-sidenav">
@@ -406,11 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-<<<<<<< HEAD
-    <h1>Lab 5 - Spatial Indexing</h1>
-=======
     <h1>Lab 5 - Geocoding</h1>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,20 +406,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<<<<<<< HEAD
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-of-beautifulsoup">1 Installation of BeautifulSoup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverted-indexing">2 Inverted Indexing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-inverted-index">2.1 Create an Inverted Index</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-with-inverted-indexing">2.2 Query with Inverted Indexing</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-indexing">3 Spatial Indexing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-spatial-index">3.1 Create a Spatial Index</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-with-spatial-indexing">3.2 Query with Spatial Indexing</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
-=======
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopy">1 - Geopy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-geocoding-service">1.1 - Choose a Geocoding Service</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-and-choose-a-geocoder">1.2 - Import and Choose a Geocoder:</a></li>
@@ -449,7 +421,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">3 - Submission</a></li>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
 </ul>
             </nav>
         </div>
@@ -461,122 +432,6 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<<<<<<< HEAD
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-5-spatial-indexing">
-<h1>Lab 5 - Spatial Indexing<a class="headerlink" href="#lab-5-spatial-indexing" title="Link to this heading">#</a></h1>
-<p>Th. 7.11.2024 15:00-17:00</p>
-<hr class="docutils" />
-<section id="installation-of-beautifulsoup">
-<h2>1 Installation of BeautifulSoup<a class="headerlink" href="#installation-of-beautifulsoup" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://beautiful-soup-4.readthedocs.io/en/latest/">Beautiful Soup</a> is a library that makes it easy to scrape information from web pages. It sits atop an HTML or XML parser, providing Pythonic idioms for iterating, searching, and modifying the parse tree.</p>
-<p><img alt="bs4" src="../_images/bs4.png" /></p>
-</section>
-<hr class="docutils" />
-<section id="inverted-indexing">
-<h2>2 Inverted Indexing<a class="headerlink" href="#inverted-indexing" title="Link to this heading">#</a></h2>
-<p>In this section we will first create an inverted index and then query with the created index. In order to achieve the first step, we will first retrieve data from Wikipedia about 5 cities/towns in Austria. Here we will also need to retrieve their point <strong>coordinates</strong> for later spatial indexing.</p>
-<section id="create-an-inverted-index">
-<h3>2.1 Create an Inverted Index<a class="headerlink" href="#create-an-inverted-index" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wikipedia</span> <span class="c1">## for getting Wikipedia summaries</span>
-
-<span class="c1">## while during installation the package name is BeautifulSoup4,</span>
-<span class="c1">## here it is still called BeautifulSoup when being imported</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> 
-<span class="kn">import</span> <span class="nn">requests</span> <span class="c1">## used along with BeautifulSoup</span>
-
-<span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">ArcGIS</span> <span class="c1">## for geocoding city/town names</span>
-
-<span class="kn">import</span> <span class="nn">spacy</span> <span class="c1">## for text processing</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span> <span class="c1">## for spatial indexing</span>
-
-<span class="c1">## for the later query with spatial indexing </span>
-<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">box</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poi_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vienna&#39;</span><span class="p">,</span><span class="s1">&#39;Salzburg&#39;</span><span class="p">,</span><span class="s1">&#39;Linz&#39;</span><span class="p">,</span><span class="s1">&#39;Innsbruck&#39;</span><span class="p">,</span><span class="s1">&#39;Hallstatt&#39;</span><span class="p">]</span>
-
-<span class="n">poi_wikipedia_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">poi</span> <span class="ow">in</span> <span class="n">poi_list</span><span class="p">:</span>
-    <span class="n">summary</span> <span class="o">=</span> <span class="n">wikipedia</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">poi</span> <span class="o">+</span> <span class="s1">&#39;, Austria&#39;</span><span class="p">)</span> <span class="c1">## adding Austria in the search will help return more accurate results</span>
-    <span class="n">summary</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/wiki/&quot;</span> <span class="o">+</span> <span class="n">poi</span>
-    <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-    <span class="n">latitude</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;latitude&quot;</span><span class="p">})</span>
-    <span class="n">longitude</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;longitude&quot;</span><span class="p">})</span>
-    <span class="n">poi_wikipedia_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;summary&#39;</span><span class="p">:</span> <span class="n">summary</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="n">latitude</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="n">longitude</span><span class="o">.</span><span class="n">text</span><span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>In the code block above, what BeautifulSoup is looking for the element that has a <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tag and a <code class="docutils literal notranslate"><span class="pre">latitude</span></code> or <code class="docutils literal notranslate"><span class="pre">longitude</span></code> class in an HTML webpage. Below is an example of Salzburg’s Wikipedia webpage.</p>
-<p><img alt="wiki_coord_inspect" src="../_images/wiki_coord_inspect.png" /></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span> <span class="c1">## load an English trained pipeline</span>
-
-<span class="c1">## use a set instead of a list to store tokens from a document collection</span>
-<span class="c1">## a set makes sure there is no duplicate elements</span>
-<span class="n">token_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span> 
-
-<span class="c1">## use the built-in enumerate() function to get the counter and the item when iterating a list</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">poi_wikipedia_list</span><span class="p">):</span> 
-    <span class="n">summary</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;summary&#39;</span><span class="p">]</span>
-
-    <span class="c1">## get only the lowercase token after lemmatization (https://spacy.io/usage/linguistic-features#lemmatization)</span>
-    <span class="c1">## stop words are not considered during this process (https://en.wikipedia.org/wiki/Stop_word)</span>
-    <span class="c1">## and only tokens containing alphabetic characters are included (https://spacy.io/api/token)</span>
-    <span class="n">tokens</span> <span class="o">=</span>  <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">nlp</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nlp</span><span class="o">.</span><span class="n">Defaults</span><span class="o">.</span><span class="n">stop_words</span> <span class="ow">and</span> <span class="n">token</span><span class="o">.</span><span class="n">is_alpha</span><span class="p">]</span>
-    <span class="n">poi_wikipedia_list</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;tokens&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tokens</span>
-    
-    <span class="n">token_set</span> <span class="o">=</span> <span class="n">token_set</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">tokens</span><span class="p">))</span> <span class="c1">## use the union method to merge two sets</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">token_set</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## inverted_index is a dictionary</span>
-<span class="c1">## each key-value pair in inverted_index is a term and its corresponding list of document ids</span>
-
-<span class="n">inverted_index</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">token_set</span><span class="p">:</span>
-    <span class="n">inverted_index</span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">poi_wikipedia_list</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">]:</span>
-            <span class="n">inverted_index</span><span class="p">[</span><span class="n">token</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">inverted_index</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="query-with-inverted-indexing">
-<h3>2.2 Query with Inverted Indexing<a class="headerlink" href="#query-with-inverted-indexing" title="Link to this heading">#</a></h3>
-<p>Next we are going to use a query to search for relevant documents. The example query is <strong>cities associated with Alps</strong>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;cities associated with Alps&#39;</span>
-=======
   <section class="tex2jax_ignore mathjax_ignore" id="lab-5-geocoding">
 <h1>Lab 5 - Geocoding<a class="headerlink" href="#lab-5-geocoding" title="Link to this heading">#</a></h1>
 <p>Th 31.10.2024 15:00-17:00</p>
@@ -607,131 +462,10 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">address</span><span class="o">=</span><span class="s1">&#39;Universitätsstraße 7, 1010 Wien&#39;</span>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
 </pre></div>
 </div>
 </div>
 </div>
-<<<<<<< HEAD
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_index_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">token</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nlp</span><span class="p">(</span><span class="n">query</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nlp</span><span class="o">.</span><span class="n">Defaults</span><span class="o">.</span><span class="n">stop_words</span> <span class="ow">and</span> <span class="n">token</span><span class="o">.</span><span class="n">is_alpha</span><span class="p">:</span>
-        <span class="c1">## use the try and except blocks to handle errors such as KeyError</span>
-        <span class="c1">## KeyError will happen if a token in the query does not exist in the keys of the inverted index</span>
-        <span class="c1">## https://www.w3schools.com/python/python_try_except.asp</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The token </span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1"> appears in &#39;</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="n">inverted_index</span><span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="o">.</span><span class="n">lower</span><span class="p">()]))</span>
-            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="c1">## use the union method to populate the set at the beginning</span>
-                <span class="n">result_index_set</span> <span class="o">=</span> <span class="n">result_index_set</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">inverted_index</span><span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="o">.</span><span class="n">lower</span><span class="p">()]))</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="c1">## use the intersection method to find out overlaps between the set and a new set</span>
-                <span class="c1">## the new set is the associated list of document ids with the next token (in the query)</span>
-                <span class="n">result_index_set</span> <span class="o">=</span> <span class="n">result_index_set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">inverted_index</span><span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="o">.</span><span class="n">lower</span><span class="p">()]))</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="k">continue</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The returned set of document ids by the given query is as follows.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_index_set</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="spatial-indexing">
-<h2>3 Spatial Indexing<a class="headerlink" href="#spatial-indexing" title="Link to this heading">#</a></h2>
-<p>For spatial indexing, we will rely on the built-in <a href='https://geopandas.org/en/stable/docs/reference/sindex.html'>STRtree implementation of GeoPandas</a>.</p>
-<p><img alt="rtree_gpd" src="../_images/rtree_gpd.png" /></p>
-<section id="create-a-spatial-index">
-<h3>3.1 Create a Spatial Index<a class="headerlink" href="#create-a-spatial-index" title="Link to this heading">#</a></h3>
-<p>To create a spatial index, we need to use the coordinates retrieved before. We also need to convert these coordinates into decimal degrees, and then create a GeoDataFrame that includes city names, summaries, and geometries.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert2decimal</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">islatorlon</span><span class="p">):</span> <span class="c1">## a function for converting coordinates into decimal degrees</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;°&#39;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;′&#39;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;″&#39;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-    <span class="n">decimal</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">60</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="mi">3600</span>
-    <span class="k">if</span> <span class="n">islatorlon</span> <span class="o">==</span> <span class="s1">&#39;lat&#39;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">num</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="c1">## include a minus sign for locations in the southern hemisphere</span>
-            <span class="k">return</span> <span class="o">-</span><span class="n">decimal</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">decimal</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">num</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;W&#39;</span><span class="p">:</span> <span class="c1">## include a minus sign for locations to the west of the prime meridian</span>
-            <span class="k">return</span> <span class="o">-</span><span class="n">decimal</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">decimal</span>
-
-<span class="c1">## a dictionary for storing relevant city information</span>
-<span class="n">poi_wikipedia_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:[],</span><span class="s1">&#39;summary&#39;</span><span class="p">:[],</span><span class="s1">&#39;geometry&#39;</span><span class="p">:[]}</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poi_list</span><span class="p">)):</span>
-    <span class="n">poi_wikipedia_dict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">poi_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">poi_wikipedia_dict</span><span class="p">[</span><span class="s1">&#39;summary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">poi_wikipedia_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;summary&#39;</span><span class="p">])</span>
-    <span class="n">lat</span> <span class="o">=</span> <span class="n">poi_wikipedia_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span>
-    <span class="n">lon</span> <span class="o">=</span> <span class="n">poi_wikipedia_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span>
-    <span class="n">lat</span> <span class="o">=</span> <span class="n">convert2decimal</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
-    <span class="n">lon</span> <span class="o">=</span> <span class="n">convert2decimal</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span>
-    <span class="n">poi_wikipedia_dict</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">))</span> <span class="c1">## create a Point object</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## create a GeoDataFrame from the dictionary</span>
-<span class="c1">## make sure to set the crs (coordinate reference system)</span>
-<span class="n">df_poi_wikipedia</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">poi_wikipedia_dict</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;summary&#39;</span><span class="p">,</span><span class="s1">&#39;geometry&#39;</span><span class="p">],</span> <span class="n">crs</span> <span class="o">=</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">)</span>
-<span class="n">df_poi_wikipedia</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## generate the spatial index</span>
-<span class="n">spatial_index</span> <span class="o">=</span> <span class="n">df_poi_wikipedia</span><span class="o">.</span><span class="n">sindex</span>
-<span class="n">spatial_index</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spatial_index</span><span class="o">.</span><span class="n">size</span> <span class="c1">## check the size of the spatial index</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="query-with-spatial-indexing">
-<h3>3.2 Query with Spatial Indexing<a class="headerlink" href="#query-with-spatial-indexing" title="Link to this heading">#</a></h3>
-<p>Here we will use five close-by cities to generate queries about them in relation to the created spatial index. To do so, we need to first geocode them.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_locations</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Graz&#39;</span><span class="p">,</span><span class="s1">&#39;Prague&#39;</span><span class="p">,</span><span class="s1">&#39;Budapest&#39;</span><span class="p">,</span><span class="s1">&#39;Munich&#39;</span><span class="p">,</span><span class="s1">&#39;Zurich&#39;</span><span class="p">]</span>
-
-<span class="n">geolocator_arcgis</span> <span class="o">=</span> <span class="n">ArcGIS</span><span class="p">()</span>
-
-<span class="n">query_lon_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">query_lat_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">query_locations</span><span class="p">:</span>
-    <span class="n">location</span> <span class="o">=</span> <span class="n">geolocator_arcgis</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
-    <span class="n">query_lon_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
-    <span class="n">query_lat_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">)</span>
-=======
 <p><strong>ArcGIS:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -774,34 +508,24 @@ document.write(`
 <span class="c1">## with additional manual inspection, can be seen as ground truth</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;cafe_poi_30.csv&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<<<<<<< HEAD
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## we will generate a GeoSeries from their coordinates</span>
-<span class="n">query_geoseries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">query_lon_list</span><span class="p">,</span> <span class="n">query_lat_list</span><span class="p">))</span>
-=======
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">service_geocode</span><span class="p">(</span><span class="n">g_locator</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
     <span class="n">location</span> <span class="o">=</span> <span class="n">g_locator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">location</span><span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<<<<<<< HEAD
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## not only we can find the nearest city to a random Point...</span>
-<span class="n">spatial_index</span><span class="o">.</span><span class="n">nearest</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mf">14.5501</span><span class="p">,</span> <span class="mf">47.5162</span><span class="p">))</span>
-=======
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## arcgis:</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;LAT_LON_arcgis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">service_geocode</span><span class="p">(</span><span class="n">geolocator_arcgis</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="s1">&#39;, Vienna&#39;</span><span class="p">)))</span>
 
@@ -809,66 +533,10 @@ document.write(`
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;LAT_LON_osm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">service_geocode</span><span class="p">(</span><span class="n">geolocator_osm</span><span class="p">,(</span><span class="n">x</span><span class="o">+</span><span class="s1">&#39;, Vienna&#39;</span><span class="p">)))</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
 </pre></div>
 </div>
 </div>
 </div>
-<<<<<<< HEAD
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## but also we can find the nearest city of a list of Points in the created GeoSeries</span>
-<span class="n">spatial_index</span><span class="o">.</span><span class="n">nearest</span><span class="p">(</span><span class="n">query_geoseries</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>In the output above, the first subarray of indices contains input geometry indices. The second subarray of indices contains tree geometry indices.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## we can also create a bounding box to find out what cities are within it</span>
-<span class="n">spatial_index</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">box</span><span class="p">(</span><span class="mf">9.47996951665</span><span class="p">,</span> <span class="mf">46.4318173285</span><span class="p">,</span> <span class="mf">16.9796667823</span><span class="p">,</span> <span class="mf">49.0390742051</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spatial_index</span><span class="o">.</span><span class="n">valid_query_predicates</span> <span class="c1">## check the valid query predicates</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## use the &#39;contains&#39; predicate with return all cities</span>
-<span class="n">spatial_index</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">box</span><span class="p">(</span><span class="mf">9.47996951665</span><span class="p">,</span> <span class="mf">46.4318173285</span><span class="p">,</span> <span class="mf">16.9796667823</span><span class="p">,</span> <span class="mf">49.0390742051</span><span class="p">),</span> <span class="n">predicate</span> <span class="o">=</span> <span class="s1">&#39;contains&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## use the &#39;within&#39; predicate with return none</span>
-<span class="n">spatial_index</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">box</span><span class="p">(</span><span class="mf">9.47996951665</span><span class="p">,</span> <span class="mf">46.4318173285</span><span class="p">,</span> <span class="mf">16.9796667823</span><span class="p">,</span> <span class="mf">49.0390742051</span><span class="p">),</span> <span class="n">predicate</span> <span class="o">=</span> <span class="s1">&#39;within&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>In addition to ‘contains’, other predicates can be chosen depending on the geometries of indexed and queried objects.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="submission">
-<h2>Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
-<p>Run the codes above and submit the .ipynb file along with answers to the following questions:</p>
-<ul class="simple">
-<li><p>Based on the indices returned by <code class="docutils literal notranslate"><span class="pre">result_index_set</span></code>, what are the cities ‘associated with Alps’?</p></li>
-<li><p>Try to use a different query with inverted indexing, what are the indices returned? Do the results make sense?</p></li>
-<li><p>Based on the index pairs returned by <code class="docutils literal notranslate"><span class="pre">spatial_index.nearest(query_geoseries)</span></code>, for each city in <code class="docutils literal notranslate"><span class="pre">query_locations</span></code> what is its nearest city in <code class="docutils literal notranslate"><span class="pre">poi_list</span></code>?</p></li>
-<li><p>Try to use a different bounding box for <code class="docutils literal notranslate"><span class="pre">spatial_index.query()</span></code>, what are the cities that will be returned?</p></li>
-</ul>
-=======
 </section>
 </section>
 <section id="evaluation">
@@ -1015,7 +683,6 @@ document.write(`
 <section id="submission">
 <h2>3 - Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
 <p>Try the code blocks above, complete section 2.4 and submit the .ipynb file on Moodle.</p>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
 </section>
 </section>
 
@@ -1059,11 +726,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../Assignment/Assignment_1.html"
+       href="Lab_6.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignment 1</p>
+        <p class="prev-next-title">Lab 6 - Spatial Indexing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1083,20 +750,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<<<<<<< HEAD
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-of-beautifulsoup">1 Installation of BeautifulSoup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverted-indexing">2 Inverted Indexing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-inverted-index">2.1 Create an Inverted Index</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-with-inverted-indexing">2.2 Query with Inverted Indexing</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-indexing">3 Spatial Indexing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-spatial-index">3.1 Create a Spatial Index</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-with-spatial-indexing">3.2 Query with Spatial Indexing</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
-=======
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopy">1 - Geopy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-geocoding-service">1.1 - Choose a Geocoding Service</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-and-choose-a-geocoder">1.2 - Import and Choose a Geocoder:</a></li>
@@ -1112,7 +765,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">3 - Submission</a></li>
->>>>>>> 444a0eec4505859ac59db5a7830d198c1a05cf9a
 </ul>
   </nav></div>
 

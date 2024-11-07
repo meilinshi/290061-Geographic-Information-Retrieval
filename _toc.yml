@@ -38,6 +38,8 @@ parts:
         title: "Lab 4"
       - file: Lab/Lab_5
         title: "Lab 5"
+      - file: Lab/Lab_6
+        title: "Lab 6"
   - caption: "Assignment"
     chapters:
       - file: Assignment/Assignment_1
