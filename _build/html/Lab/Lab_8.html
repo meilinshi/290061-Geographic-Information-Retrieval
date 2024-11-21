@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 8 - Geospatial Semantics I &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lab/Lab_8';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 1" href="../Assignment/Assignment_1.html" />
+    <link rel="prev" title="Lab 7 - Relevance Ranking" href="Lab_7.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W) - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_1.html">Lecture 1: A Course Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_2.html">Lecture 2: Basic Models of Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_3.html">Lecture 3: Spatial Language in Documents and Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_4.html">Lecture 4: Georeferencing I - Geoparsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_5.html">Lecture 5: Georeferencing II - Geocoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_6.html">Lecture 6: Spatial Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_7.html">Lecture 7: Relevance Ranking for GIR Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_8.html">Lecture 8: Geospatial Semantics I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_9.html">Lecture 9: Geospatial Semantics II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_10.html">Lecture 10: Ongoing Research and Challenges in GIR</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lab_1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_4.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_5.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_6.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_7.html">Lab 7</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 8</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_2.html">Assignment 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_3.html">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_4.html">Assignment 4</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Final Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/meilinshi/290061-Geographic-Information-Retrieval" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/meilinshi/290061-Geographic-Information-Retrieval/issues/new?title=Issue%20on%20page%20%2FLab/Lab_8.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lab/Lab_8.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 8 - Geospatial Semantics I</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geonames-as-a-data-provider">1 GeoNames as a Data Provider</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">1.1 Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-codes">1.2 Feature codes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">1.3 Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dump">1.4 Data Dump</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geonames-ontology">2 GeoNames Ontology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-semantic-web">2.1 The Semantic Web</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ontology-expressed-in-owl">2.2 Ontology Expressed in OWL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-geonames-ontology-with-other-ontologies">2.3 Mapping GeoNames Ontology with Other Ontologies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-geonames-data-austria">3 Working with GeoNames Data - Austria</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-downloaded-data">3.1 Read Downloaded Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#browse-a-geonames-feature-with-followyournose-search">3.2 Browse a GeoNames Feature with FollowYourNose Search</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rdflib">3.2.1 RDFLib</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-searching">3.2.2 Keep Searching?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-8-geospatial-semantics-i">
+<h1>Lab 8 - Geospatial Semantics I<a class="headerlink" href="#lab-8-geospatial-semantics-i" title="Link to this heading">#</a></h1>
+<p>Th. 21.11.2024 15:00-17:00</p>
+<hr class="docutils" />
+<section id="geonames-as-a-data-provider">
+<h2>1 GeoNames as a Data Provider<a class="headerlink" href="#geonames-as-a-data-provider" title="Link to this heading">#</a></h2>
+<p>In this section, we will first go through GeoNames as a global gazetteer and try to understand its contained data.</p>
+<section id="description">
+<h3>1.1 Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h3>
+<p>The GeoNames geographical database is available for download free of charge under a creative commons attribution license. It contains over 25 million geographical names and consists of over 12 million unique features whereof 4.8 million populated places and 16 million alternate names.</p>
+<p>GeoNames is integrating geographical data such as names of places in various languages, elevation, population and others from various sources. All lat/long coordinates are in WGS84 (World Geodetic System 1984). Users may manually edit, correct and add new names using a user friendly wiki interface.</p>
+<p><img alt="geonames" src="../_images/geonames.png" /></p>
+</section>
+<section id="feature-codes">
+<h3>1.2 Feature codes<a class="headerlink" href="#feature-codes" title="Link to this heading">#</a></h3>
+<p>In GeoNames, all features are categorized into several feature classes and further subcategorized into one out of 645 <a class="reference external" href="https://www.geonames.org/export/codes.html">feature codes</a>.</p>
+<p><strong>Question 1</strong>: How many <strong>feature classes</strong> does it have? What are they?</p>
+<p><img alt="geonames_feature_codes" src="../_images/geonames_feature_codes.png" /></p>
+</section>
+<section id="statistics">
+<h3>1.3 Statistics<a class="headerlink" href="#statistics" title="Link to this heading">#</a></h3>
+<p>Check out (<a class="reference external" href="https://www.geonames.org/statistics">more statistics …</a>) here regarding region/country statistics and how many features each region/country has.</p>
+<p><strong>Question 2</strong>: Where is Austria? Can you list the associated statistics?
+<img alt="geonames_statistics" src="../_images/geonames_statistics.png" /></p>
+</section>
+<section id="data-dump">
+<h3>1.4 Data Dump<a class="headerlink" href="#data-dump" title="Link to this heading">#</a></h3>
+<p>The data in GeoNames is accessible free of charge through a number of <a class="reference external" href="https://www.geonames.org/export/#ws">webservices</a> and a daily <a class="reference external" href="https://www.geonames.org/export/#dump">database export</a>. See the <a class="reference external" href="https://download.geonames.org/export/dump/readme.txt">readme.txt</a> about downloadable data stored on the <a class="reference external" href="https://download.geonames.org/export/dump/">server</a>.</p>
+<p><strong>Download the AT.zip dataset</strong>, which includes features within Austria.
+<img alt="at" src="../_images/at.png" /></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="geonames-ontology">
+<h2>2 GeoNames Ontology<a class="headerlink" href="#geonames-ontology" title="Link to this heading">#</a></h2>
+<p>GeoNames was developed during the <a class="reference external" href="https://en.wikipedia.org/wiki/Semantic_Web">Semantic Web</a> movement.</p>
+<section id="the-semantic-web">
+<h3>2.1 The Semantic Web<a class="headerlink" href="#the-semantic-web" title="Link to this heading">#</a></h3>
+<p>The Semantic Web is a project that intends to add computer-processable meaning (semantics) to the World Wide Web.
+In Feb 2004, <a class="reference external" href="https://www.w3.org/">The World Wide Web Consortium (W3C)</a> released the <a class="reference external" href="https://www.w3.org/RDF/">Resource Description Framework (RDF)</a> and the <a class="reference external" href="https://www.w3.org/OWL/">OWL Web Ontology Language (OWL)</a> as W3C Recommendations. RDF is used to represent information and to exchange knowledge in the Web. OWL is used to publish and share sets of terms called ontologies, supporting advanced Web search, software agents and knowledge management.</p>
+<p><img alt="w3c" src="../_images/w3c.png" /></p>
+</section>
+<section id="ontology-expressed-in-owl">
+<h3>2.2 Ontology Expressed in OWL<a class="headerlink" href="#ontology-expressed-in-owl" title="Link to this heading">#</a></h3>
+<p>The GeoNames Ontology makes it possible to add geospatial semantic information to the World Wide Web. All over 11 million geonames toponyms now have a unique URL with a corresponding RDF web service. Other services describe the relation between toponyms. The Ontology for GeoNames is available in OWL.</p>
+<p>You can download from <a class="reference external" href="https://www.geonames.org/ontology/ontology_v3.3.rdf">here</a>. To open it, you can try to use code editors like <a class="reference external" href="https://code.visualstudio.com/">Microsoft Visual Studio Code</a>.</p>
+<p><strong>Question 3</strong>: What interesting information do you see from the GeoNames ontology? List a few examples.
+<img alt="geonames_ontology" src="../_images/geonames_ontology.png" /></p>
+</section>
+<section id="mapping-geonames-ontology-with-other-ontologies">
+<h3>2.3 Mapping GeoNames Ontology with Other Ontologies<a class="headerlink" href="#mapping-geonames-ontology-with-other-ontologies" title="Link to this heading">#</a></h3>
+<p>Check also how the GeoNames Ontology can be mapped to other ontologies, e.g., of other gazetteers. You can download the mapping from <a class="reference external" href="https://www.geonames.org/ontology/mappings_v3.01.rdf">here</a>, and again, open it with the code editor.</p>
+<p><img alt="geonames_ontology_mapping" src="../_images/geonames_ontology_mapping.png" /></p>
+<p>P.S.: One of such gazetteers is <a class="reference external" href="https://www.dbpedia.org/">DBpedia</a>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="working-with-geonames-data-austria">
+<h2>3 Working with GeoNames Data - Austria<a class="headerlink" href="#working-with-geonames-data-austria" title="Link to this heading">#</a></h2>
+<p>In this section, we are going to use the data downloaded before and learn how to read and browse it.</p>
+<section id="read-downloaded-data">
+<h3>3.1 Read Downloaded Data<a class="headerlink" href="#read-downloaded-data" title="Link to this heading">#</a></h3>
+<p>This time we need to read a .txt file with Pandas to create a DataFrame. However, the file does not come with a header. How do we know what each column stands for?</p>
+<p>Quick answer(!): Check the <strong>readme.txt</strong> in the downloaded .zip file, so that you can know how to define the <strong>field names</strong> in <strong>AT.txt</strong>.</p>
+<p><img alt="readme" src="../_images/readme.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_at</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;AT/AT.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;geonameid&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;asciiname&quot;</span><span class="p">,</span> <span class="s2">&quot;alternatenames&quot;</span><span class="p">,</span>
+                                                <span class="s2">&quot;latitude&quot;</span><span class="p">,</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span><span class="s2">&quot;feature class&quot;</span><span class="p">,</span><span class="s2">&quot;feature code&quot;</span><span class="p">,</span>
+                                                <span class="s2">&quot;country code&quot;</span><span class="p">,</span><span class="s2">&quot;cc2&quot;</span><span class="p">,</span><span class="s2">&quot;admin1 code&quot;</span><span class="p">,</span><span class="s2">&quot;admin2 code&quot;</span><span class="p">,</span>
+                                                <span class="s2">&quot;admin3 code&quot;</span><span class="p">,</span><span class="s2">&quot;admin4 code&quot;</span><span class="p">,</span><span class="s2">&quot;population&quot;</span><span class="p">,</span>
+                                                <span class="s2">&quot;elevation&quot;</span><span class="p">,</span><span class="s2">&quot;dem&quot;</span><span class="p">,</span><span class="s2">&quot;timezone&quot;</span><span class="p">,</span><span class="s2">&quot;modification date&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_at</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Find out what is the geonameid for <strong>Wien</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_at</span><span class="p">[</span><span class="n">df_at</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Wien&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="browse-a-geonames-feature-with-followyournose-search">
+<h2>3.2 Browse a GeoNames Feature with FollowYourNose Search<a class="headerlink" href="#browse-a-geonames-feature-with-followyournose-search" title="Link to this heading">#</a></h2>
+<p>Next, we are going to use the retrieved geonameid to browse information about Wien.</p>
+<p>Note that GeoNames is using <a class="reference external" href="https://www.geonames.org/ontology/documentation.html#:~:text=GeoNames%20is%20using,for%20more%20information.">303 redirection</a> to distinguish the <strong>Concept</strong> (thing as is) from the <strong>Document</strong> about it.</p>
+<p>For Wien we actually have these two URIs pointing to both it as a Concept and a Document about it:</p>
+<ul class="simple">
+<li><p>[1] <a class="reference external" href="https://sws.geonames.org/2761367/">https://sws.geonames.org/2761367/</a></p></li>
+<li><p>[2] <a class="reference external" href="https://sws.geonames.org/2761367/about.rdf">https://sws.geonames.org/2761367/about.rdf</a></p></li>
+</ul>
+<p>The GeoNames redirects requests for [1] to [2]. The latter one that contains <strong>RDF descriptions</strong> about a feature is what we will use next for <strong><a class="reference external" href="https://www.w3.org/wiki/FollowYourNose">FollowYourNose</a></strong> search.</p>
+<section id="rdflib">
+<h3>3.2.1 RDFLib<a class="headerlink" href="#rdflib" title="Link to this heading">#</a></h3>
+<p>To access and parse RDF, we need a Python package called <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/">RDFLib</a> to work with. Install the libary with the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rdflib</span>
+</pre></div>
+</div>
+<p><img alt="rdflib" src="../_images/rdflib.png" /></p>
+<p>The data are in the form of <strong>triples</strong>, and we need a <strong>Graph</strong> to load and store them. A triple has the form of <strong>&lt;subject, predicate, object&gt;</strong>.
+<img alt="triples" src="../_images/triples.jpg" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdflib</span> <span class="kn">import</span> <span class="n">Graph</span>
+<span class="c1"># Create a Wien Graph</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parse the Document about Wien.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;http://www.geonames.org/2761367/about.rdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Loop through each triple in the Wien Graph, and check if there is at least one triple.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">subj</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">subj</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
+       <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;It better be!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 4</strong>: How many triples are there in the Wien Graph?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Wien Graph has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="si">}</span><span class="s2"> triples.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print out the entire Wien Graph in the RDF <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Turtle_(syntax)">Turtle</a></strong> format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;turtle&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="keep-searching">
+<h3>3.2.2 Keep Searching?<a class="headerlink" href="#keep-searching" title="Link to this heading">#</a></h3>
+<p>Can we keep searching for <strong>linked entities</strong> to Wien? Try the following code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdflib</span> <span class="kn">import</span> <span class="n">URIRef</span>
+
+<span class="n">wien</span> <span class="o">=</span> <span class="n">URIRef</span><span class="p">(</span><span class="s2">&quot;https://sws.geonames.org/2761367/&quot;</span><span class="p">)</span>
+
+<span class="n">predicate_chosen</span> <span class="o">=</span> <span class="n">URIRef</span><span class="p">(</span><span class="s2">&quot;http://www.geonames.org/ontology#childrenFeatures&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">triples</span><span class="p">((</span><span class="n">wien</span><span class="p">,</span> <span class="n">predicate_chosen</span><span class="p">,</span> <span class="kc">None</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;turtle&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 5</strong>:  What is this url - <a class="reference external" href="https://sws.geonames.org/2761333/">https://sws.geonames.org/2761333/</a> - pointing? What is its difference compared with <strong>Wien</strong>?</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
+<p>Run the codes above and submit the .ipynb file along with answers to Question 1 to 5.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lab"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lab_7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 7 - Relevance Ranking</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Assignment/Assignment_1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geonames-as-a-data-provider">1 GeoNames as a Data Provider</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">1.1 Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-codes">1.2 Feature codes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">1.3 Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dump">1.4 Data Dump</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geonames-ontology">2 GeoNames Ontology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-semantic-web">2.1 The Semantic Web</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ontology-expressed-in-owl">2.2 Ontology Expressed in OWL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-geonames-ontology-with-other-ontologies">2.3 Mapping GeoNames Ontology with Other Ontologies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-geonames-data-austria">3 Working with GeoNames Data - Austria</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-downloaded-data">3.1 Read Downloaded Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#browse-a-geonames-feature-with-followyournose-search">3.2 Browse a GeoNames Feature with FollowYourNose Search</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rdflib">3.2.1 RDFLib</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-searching">3.2.2 Keep Searching?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Meilin Shi and Zilong Liu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
