@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 9 - Geospatial Semantics II &#8212; 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lab/Lab_9';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 1" href="../Assignment/Assignment_1.html" />
+    <link rel="prev" title="Lab 8 - Geospatial Semantics I" href="Lab_8.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W) - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W) - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to 290061 PS Principles and Methods of Application Development - Geographic Information Retrieval (2024W)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_1.html">Lecture 1: A Course Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_2.html">Lecture 2: Basic Models of Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_3.html">Lecture 3: Spatial Language in Documents and Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_4.html">Lecture 4: Georeferencing I - Geoparsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_5.html">Lecture 5: Georeferencing II - Geocoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_6.html">Lecture 6: Spatial Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_7.html">Lecture 7: Relevance Ranking for GIR Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_8.html">Lecture 8: Geospatial Semantics I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_9.html">Lecture 9: Geospatial Semantics II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture/Lecture_10.html">Lecture 10: Ongoing Research and Challenges in GIR</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lab_1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_4.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_5.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_6.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab_8.html">Lab 8</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 9</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_2.html">Assignment 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_3.html">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Assignment/Assignment_4.html">Assignment 4</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Final Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/meilinshi/290061-Geographic-Information-Retrieval" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/meilinshi/290061-Geographic-Information-Retrieval/issues/new?title=Issue%20on%20page%20%2FLab/Lab_9.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lab/Lab_9.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 9 - Geospatial Semantics II</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-retrieving-data-from-osm-with-pyrosm">0. (Optional) Retrieving Data from OSM with Pyrosm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-data">Retrieving Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-data">1. Read in Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-data">2. Aggregate Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">3. Word2Vec</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doc2vec">4. Doc2Vec</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">5. Submission</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-9-geospatial-semantics-ii">
+<h1>Lab 9 - Geospatial Semantics II<a class="headerlink" href="#lab-9-geospatial-semantics-ii" title="Link to this heading">#</a></h1>
+<p>Th 28.11.2024 15:00-17:00</p>
+<hr class="docutils" />
+<section id="optional-retrieving-data-from-osm-with-pyrosm">
+<h2>0. (Optional) Retrieving Data from OSM with Pyrosm<a class="headerlink" href="#optional-retrieving-data-from-osm-with-pyrosm" title="Link to this heading">#</a></h2>
+<p><img alt="pyrosm" src="../_images/pyrosm.png" /></p>
+<section id="retrieving-data">
+<h3>Retrieving Data<a class="headerlink" href="#retrieving-data" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">pyrosm</span> <span class="pre">import</span> <span class="pre">OSM,</span> <span class="pre">get_data</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">vienna</span> <span class="pre">=</span> <span class="pre">get_data(&quot;wien&quot;)</span></code> # Download data for Vienna</p>
+<p><code class="docutils literal notranslate"><span class="pre">osm</span> <span class="pre">=</span> <span class="pre">OSM(vienna)</span></code> # Initialize the reader object for Vienna</p>
+<p><code class="docutils literal notranslate"><span class="pre">vienna_poi</span> <span class="pre">=</span> <span class="pre">osm.get_pois()</span></code> # Extract the POIs in Vienna from OSM</p>
+<p>In the first command, we downloaded the data for “wien” using the get_data function. This function in fact automates the data downloading process and stores the data locally in a temporary folder. The next step was to initialize a reader object called osm. The OSM() function takes the filepath to a given osm.pbf file as an input. Notice that at this point we actually didn’t yet read any data into DataFrame.</p>
+<p>OSM contains a lot of information about the world, which is contributed by citizens like you and me. In principle, we can retrieve information under various themes from OSM using the following functions.</p>
+<ul class="simple">
+<li><p>road networks –&gt; osm.get_network()</p></li>
+<li><p>buildings –&gt; osm.get_buildings()</p></li>
+<li><p>Points of Interest (POI) –&gt; osm.get_pois()</p></li>
+<li><p>landuse –&gt; osm.get_landuse()</p></li>
+<li><p>natural elements –&gt; osm.get_natural()</p></li>
+<li><p>boundaries –&gt; osm.get_boundaries()</p></li>
+</ul>
+</section>
+</section>
+<section id="read-in-data">
+<h2>1. Read in Data<a class="headerlink" href="#read-in-data" title="Link to this heading">#</a></h2>
+<p>The dataset we downloaded from moodle is preprocessed from the results of <code class="docutils literal notranslate"><span class="pre">osm.get_pois()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;vienna_poi.csv&#39;</span><span class="p">)</span>
+
+<span class="c1">## removes rows from if the &#39;amenity&#39; column contains missing values</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;amenity&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="aggregate-data">
+<h2>2. Aggregate Data<a class="headerlink" href="#aggregate-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## group by postcode and aggregate values in the `amenity` column into a list</span>
+
+<span class="n">df_group</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;postcode&#39;</span><span class="p">)[</span><span class="s1">&#39;amenity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_group</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After aggregating the data, we need to prepare a document list (called corpus here) as the input to the model. This corpus is a list of list, where the inner list is a place type list composing the document.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_group</span><span class="p">[</span><span class="s1">&#39;amenity&#39;</span><span class="p">])</span>
+<span class="n">corpus</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="word2vec">
+<h2>3. Word2Vec<a class="headerlink" href="#word2vec" title="Link to this heading">#</a></h2>
+<p>With such a corpus, we then can train the neural network to learn the embedding for words in the corpus based on their use in the document. All the detailed processes (e.g., initializing, sampling, optimization, etc.) are encapsulated in the function called Word2Vec provided by gensim’s models module (it also includes other advanced NLP models such as ldamodel).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
+
+<span class="c1">## train the model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">corpus</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vector_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">window</span> <span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sg</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">gensim</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gensim</span></code> if you cannot import gensim</p>
+<p>For the full documentation of Word2Vec, please check it official webpage: <a class="reference external" href="https://radimrehurek.com/gensim/models/word2vec.html">https://radimrehurek.com/gensim/models/word2vec.html</a>. In this example, you will see in the parameters corpus, the input:</p>
+<ul class="simple">
+<li><p><strong>min_count</strong>, if the frequency of a word is less than it, it will not be considered in the model;</p></li>
+<li><p><strong>vector_size</strong>, dimensionality of the word embedding vector;</p></li>
+<li><p><strong>workers</strong>, the number of worker threads to train the model (it depends on your systems capability);</p></li>
+<li><p><strong>window</strong>, maximum distance between the current and predicted word (define the length of the context);</p></li>
+<li><p><strong>sg</strong>, training algorithm: 1 for skip-gram; 0 for CBOW (Continuous Bag of Words).</p></li>
+</ul>
+<p><strong>How to determine these parameters sometimes depends on modeler’s experience as well as the experiment results. In general Machine Learning (ML)/Deep Learning (DL) field, scientists usually conduct a lot of experienment in order to tune the model to its best performance.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## with the trained model, we can see the word embedding of any word (place type here)</span>
+<span class="c1">## wv is short for word vector</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s1">&#39;restaurant&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## compute the (semantic) simiarity between words (place types)</span>
+
+<span class="n">sim_restaurant_cafe</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="s1">&#39;restaurant&#39;</span><span class="p">,</span> <span class="s1">&#39;cafe&#39;</span><span class="p">)</span>
+<span class="n">sim_restaurant_cafe</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim_cafe_bank</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="s1">&#39;cafe&#39;</span><span class="p">,</span> <span class="s1">&#39;bank&#39;</span><span class="p">)</span>
+<span class="n">sim_cafe_bank</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use the built-in function most_similar() to get the most similar word to the target:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">similar_words</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">similar_words</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">similar_words</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;doctors&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">similar_words</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="doc2vec">
+<h2>4. Doc2Vec<a class="headerlink" href="#doc2vec" title="Link to this heading">#</a></h2>
+<p>Similar to Word2Vec, we can also compute the document embedding with <a class="reference external" href="https://radimrehurek.com/gensim/models/doc2vec.html">Doc2Vec</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Doc2Vec</span>
+<span class="kn">from</span> <span class="nn">gensim.models.doc2vec</span> <span class="kn">import</span> <span class="n">TaggedDocument</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert DataFrame to TaggedDocument format</span>
+<span class="n">tagged_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_group</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;amenity&#39;</span><span class="p">]</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;postcode&#39;</span><span class="p">]</span>
+    <span class="n">tagged_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TaggedDocument</span><span class="p">(</span><span class="n">words</span><span class="o">=</span><span class="n">words</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">tags</span><span class="p">)]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tagged_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Doc2Vec</span><span class="p">(</span><span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vector_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">build_vocab</span><span class="p">(</span><span class="n">tagged_data</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">tagged_data</span><span class="p">,</span> <span class="n">total_examples</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">corpus_count</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">similarity_score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">dv</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="s1">&#39;1010&#39;</span><span class="p">,</span> <span class="s1">&#39;1070&#39;</span><span class="p">)</span>
+<span class="n">similarity_score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">similarity_score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">dv</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="s1">&#39;1010&#39;</span><span class="p">,</span> <span class="s1">&#39;1190&#39;</span><span class="p">)</span>
+<span class="n">similarity_score</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="submission">
+<h2>5. Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
+<p>Feel free to adjust the parameters, explore Word2Vec and Doc2Vec with different place types and districts.</p>
+<p>Write a few sentences whether the results make sense to you:</p>
+<p>…</p>
+<p>and submit the .ipynb file on Moodle.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lab"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lab_8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 8 - Geospatial Semantics I</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Assignment/Assignment_1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-retrieving-data-from-osm-with-pyrosm">0. (Optional) Retrieving Data from OSM with Pyrosm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-data">Retrieving Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-data">1. Read in Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-data">2. Aggregate Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">3. Word2Vec</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doc2vec">4. Doc2Vec</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">5. Submission</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Meilin Shi and Zilong Liu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
